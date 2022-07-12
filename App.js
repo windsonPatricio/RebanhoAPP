@@ -2,12 +2,11 @@ import React from 'react';
 import firebase from './src/config/configFirebase';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator} from '@react-navigation/stack';
-import {TouchableOpacity, Alert} from 'react-native';
-import styles from './src/pages/GlobalStyle/styles';
-import Icon2 from 'react-native-vector-icons/Entypo';
+import {Alert} from 'react-native';
 import Login from './src/pages/Login/';
 import Pagina from './src/pages/Pagina/';
 import NovoUser from './src/pages/NovoUser/';
+import GerenciarAnimais from './src/pages/GerenciarAnimais/';
 import Detalhes from './src/pages/Detalhes';
 import CadastrarAnimal from './src/pages/CadastrarAnimal';
 import EditarAnimal from './src/pages/EditarAnimal';
@@ -52,6 +51,14 @@ export default function App({navigation}) {
                 options={() => ({
                   headerShown: false
                 })}
+              />
+              <Stack.Screen
+                name = "GerenciarAnimais"
+                component = {GerenciarAnimais}
+                options={{
+                  title: "Gerenciar animais"
+                
+                }}
               />
               <Stack.Screen
                 name = "Detalhes"
