@@ -1,18 +1,30 @@
 import React, { useState } from "react";
-import { Alert, View, Text, TextInput, TouchableOpacity } from "react-native";
+import RNPickerSelect from 'react-native-picker-select';
+import { Alert, View, ScrollView, KeyboardAvoidingView, Text, TextInput, TouchableOpacity } from "react-native";
 import firebase from '../../config/configFirebase'
 import styles from "../GlobalStyle/styles";
 
 
 export default function CadastrarAnimal({ navigation, route }) {
     const database  = firebase.firestore();
-    const [peso, setPeso] = useState(null);
+    const [id, setID] = useState(null);
     const [tipo, setTipo] = useState(null);
+    const [peso, setPeso] = useState(null);
+    const [data, setData] = useState(null);
+    const [valor, setValor] = useState(null);
+    
+   
    
     function addAnimal(){
       database.collection(route.params.idUser).add({
+        id: id,
+        tipo: tipo,
         peso: peso,
-        tipo: tipo
+        data: data,
+        valor: valor,
+        ultVacina: null,
+        anoAplicacao: null
+        
       })
       Alert.alert(
         'Aviso', 'Animal cadastrado com Sucesso!',
@@ -23,23 +35,65 @@ export default function CadastrarAnimal({ navigation, route }) {
       navigation.navigate("GerenciarAnimais", {idUser: route.params.idUser});
     }
 
+   
+
     return(
-        <View>
-          <Text style={styles.texto}> coloque o peso do animal
+      <View behavior="position" enabled>
+        
+          <Text style={styles.texto}> coloque a identificacão do animal:
           </Text>
           <TextInput
-                style={styles.CampodeTexto}
+                style={styles.CampodeTexto2}
+                placeholder="identificacão brinco"
+                type="numeric"
+                keyboardType= "numeric"
+                //keyboardAppearance="dark"
+                onChangeText={(text)=> setID(text)}
+                value={id}
+          />
+           {/* <TouchableOpacity 
+            style={styles.botaoLogin}
+            onPress={()=>{
+              Alert.alert(
+                'Número de identificacão', 'Número localizado no brinco preso á orelha do animal',
+                [
+                    {text: "OK", style: 'cancel',}
+                ],
+               )
+            }}
+          >
+            <Text style={styles.textoBotao}>Ajuda</Text>
+          </TouchableOpacity> */}
+
+          <Text style={styles.texto}> coloque o tipo do animal
+          </Text>
+          <View  style={styles.CampodeTexto2}>
+              <RNPickerSelect
+              label= 'selecione o tipo do animal:'
+                onValueChange={(value) => setTipo(value)}
+                items={[
+                    { label: 'Cria', value: 'Cria' },
+                    { label: 'Corte', value: 'Corte' },
+                    { label: 'Bezerro', value: 'Bezerro' },
+                ]}
+                />
+           </View>
+           
+          <Text style={styles.texto}> coloque o tipo do animal
+          </Text>
+          <TextInput
+                style={styles.CampodeTexto2}
                 placeholder="Peso do animal"
                 type="numeric"
                 keyboardType= "numeric"
-                keyboardAppearance="dark"
+                //keyboardAppearance="dark"
                 onChangeText={(text)=> setPeso(text)}
                 value={peso}
           />
           <Text style={styles.texto}> coloque o tipo do animal
           </Text>
           <TextInput
-                style={styles.CampodeTexto}
+                style={styles.CampodeTexto2}
                 placeholder="ex: corte ou cria"
                 type="text"
                 keyboardAppearance="dark"
@@ -54,6 +108,7 @@ export default function CadastrarAnimal({ navigation, route }) {
           >
             <Text style={styles.textoBotao}>Cadastrar</Text>
           </TouchableOpacity>
+        
         </View>
       )
     }

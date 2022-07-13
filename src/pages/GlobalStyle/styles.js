@@ -46,6 +46,7 @@ CampodeTexto:{
         fontSize: 20,
         textAlign: 'left',
         padding: 15,
+        backgroundColor: 'white',
         borderStyle: "solid",
         borderBottomColor: "black",
         borderWidth: 3,
@@ -273,7 +274,20 @@ textoTitleQtd:{
         color:TITLE_BG_COLOR
         
 },
+ //Tela cadastro
 
+ CampodeTexto2:{
+        fontSize: 20,
+        padding: 15,
+        backgroundColor: 'white',
+        textAlign: 'left',
+        borderStyle: "solid",
+        borderBottomColor: "black",
+        borderWidth: 3,
+        borderRadius: 25,
+        marginLeft: 10,
+        marginRight: 10
+ },
 
 // Tela Arroba
 
