@@ -65,7 +65,7 @@ export default function CadastrarAnimal({ navigation, route }) {
             <Text style={styles.textoBotao}>Ajuda</Text>
           </TouchableOpacity>
            
-          <Text style={styles.texto}> coloque o tipo do animal
+          <Text style={styles.texto}> coloque o peso do animal
           </Text>
           <TextInput
                 style={styles.CampodeTexto2}
@@ -85,6 +85,24 @@ export default function CadastrarAnimal({ navigation, route }) {
                 keyboardAppearance="dark"
                 onChangeText={(text)=> setTipo(text)}
                 value={tipo}
+          />
+          <Text style={styles.texto}> data da aquisicão
+          </Text>
+          <TextInput
+                style={styles.CampodeTexto2}
+                placeholder="data "
+                type="date"
+                onChangeText={(text)=> setData(text)}
+                value={data}
+          />
+          <Text style={styles.texto}> preco do animal
+          </Text>
+          <TextInput
+                style={styles.CampodeTexto2}
+                placeholder="valor "
+                type="text"
+                onChangeText={(text)=> setValor(text)}
+                value={valor}
           />
           <TouchableOpacity 
             style={styles.botaoLogin}
