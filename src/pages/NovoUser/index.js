@@ -10,11 +10,22 @@ export default function Login({navigation}) {
 
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+    const [confSenha, setConfSenha] = useState("");
     const [erroLogin, setErroLogin] = useState("");
   
     
 
     const loginFirebase = () => {
+
+      if(senha !== confSenha){
+          Alert.alert(
+              'Aviso!', 'Confirmacão de senha inválida',
+              [
+                  {text: "OK", style: 'cancel',}
+              ],
+          )
+      } else{
+
         firebase.auth().createUserWithEmailAndPassword(email, senha)
         .then((userCredential) => {
           // Signed in
@@ -30,6 +41,7 @@ export default function Login({navigation}) {
             var errorMessage = error.message;
           // ..
         });
+      }
 
     }
 
@@ -62,6 +74,14 @@ export default function Login({navigation}) {
                        onChangeText={(text)=> setSenha(text)}
                        value={senha}
                        />
+                      <Text style={styles.texto}>Confirme sua senha:</Text>
+                      <TextInput 
+                       style={styles.CampodeTexto}
+                       secureTextEntry={true}
+                       placeholder="Confirme a sua senha"
+                       onChangeText={(text)=> setConfSenha(text)}
+                       value={confSenha}
+                       />
 
                        {erroLogin === true
                        ?
@@ -74,7 +94,7 @@ export default function Login({navigation}) {
                        <View/>
                        }
 
-                        {email === "" || senha === ""
+                        {email === "" || senha === ""  || confSenha === ""
                         ?
                         <TouchableOpacity style={styles.botaoLogin}
                             onPress={() => Alert.alert(
@@ -92,6 +112,7 @@ export default function Login({navigation}) {
                         </TouchableOpacity>
                         
                         }
+                       
                       <View style={styles.linkRegistro}>
                             <Text style={styles.texto}> Já é cadastrado</Text>
                             <TouchableOpacity onPress={()=>{navigation.navigate("Login")}}>

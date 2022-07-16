@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import RNPickerSelect from 'react-native-picker-select';
 import { Alert, View, ScrollView, KeyboardAvoidingView, Text, TextInput, TouchableOpacity } from "react-native";
 import firebase from '../../config/configFirebase'
 import styles from "../GlobalStyle/styles";
@@ -23,7 +22,8 @@ export default function CadastrarAnimal({ navigation, route }) {
         data: data,
         valor: valor,
         ultVacina: null,
-        anoAplicacao: null
+        anoAplicacao: null,
+        class: 'animal'
         
       })
       Alert.alert(
@@ -51,7 +51,7 @@ export default function CadastrarAnimal({ navigation, route }) {
                 onChangeText={(text)=> setID(text)}
                 value={id}
           />
-           {/* <TouchableOpacity 
+            <TouchableOpacity 
             style={styles.botaoLogin}
             onPress={()=>{
               Alert.alert(
@@ -63,21 +63,7 @@ export default function CadastrarAnimal({ navigation, route }) {
             }}
           >
             <Text style={styles.textoBotao}>Ajuda</Text>
-          </TouchableOpacity> */}
-
-          <Text style={styles.texto}> coloque o tipo do animal
-          </Text>
-          <View  style={styles.CampodeTexto2}>
-              <RNPickerSelect
-              label= 'selecione o tipo do animal:'
-                onValueChange={(value) => setTipo(value)}
-                items={[
-                    { label: 'Cria', value: 'Cria' },
-                    { label: 'Corte', value: 'Corte' },
-                    { label: 'Bezerro', value: 'Bezerro' },
-                ]}
-                />
-           </View>
+          </TouchableOpacity>
            
           <Text style={styles.texto}> coloque o tipo do animal
           </Text>
