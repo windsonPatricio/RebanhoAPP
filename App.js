@@ -7,9 +7,11 @@ import Login from './src/pages/Login/';
 import Pagina from './src/pages/Pagina/';
 import NovoUser from './src/pages/NovoUser/';
 import GerenciarAnimais from './src/pages/GerenciarAnimais/';
-import ListaAnimal from './src/pages/ListaAnimal';
+import ListaAnimal from './src/pages/ListaAnimal/';
 import CadastrarAnimal from './src/pages/CadastrarAnimal';
 import EditarAnimal from './src/pages/EditarAnimal';
+import ListaVacinal from './src/pages/ListaVacinal';
+import CadastrarVacina from './src/pages/CadastrarVacina';
 import PrecoArroba from './src/pages/webService/PrecoArroba';
 
 const Stack = createStackNavigator()
@@ -84,6 +86,22 @@ export default function App({navigation}) {
                 
                 }}
               />   
+               <Stack.Screen
+                name = "ListaVacinal"
+                component = {ListaVacinal}
+                options={{
+                  title: "Controle Vacinal"
+                
+                }}
+              />  
+             <Stack.Screen
+                name = "CadastrarVacina"
+                component = {CadastrarVacina}
+                options={{
+                  title: "Registrar Vacina"
+                
+                }}
+              />  
               <Stack.Screen
                 name = "Financeiro"
                 component = {PrecoArroba}

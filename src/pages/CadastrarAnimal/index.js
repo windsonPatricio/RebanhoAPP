@@ -33,8 +33,8 @@ export default function CadastrarAnimal({ navigation, route }) {
         peso: peso,
         data: data,
         valor: valor,
-        ultVacina: null,
-        anoAplicacao: null,
+        ultVacina: 'Não aplicada',
+        anoAplicacao: 'Não aplicada',
         class: 'animal'
         
       })

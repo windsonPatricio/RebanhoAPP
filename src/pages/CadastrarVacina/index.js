@@ -9,111 +9,63 @@ import Icon from 'react-native-vector-icons/Entypo';
 
 export default function CadastrarAnimal({ navigation, route }) {
     const database  = firebase.firestore();
-    const [idBoi, setID] = useState(null);
-    const [tipo, setTipo] = useState(null);
-    const [peso, setPeso] = useState(null);
-    const [data, setData] = useState(null);
-    const [valor, setValor] = useState(null);
-    
-   function alertAjuda(){
-    
-      Alert.alert(
-        'Número de identificacão', 'Número localizado no brinco preso á orelha do animal',
-        [
-            {text: "OK", style: 'cancel',}
-        ],
-       )
-
-   }
-   
-    function addAnimal(){
-      database.collection(route.params.idUser).add({
+    const [idBoi, setIdBoiEdit] = useState(route.params.idBoi)
+    const [novaVacina, setNovaVacina] = useState(null)
+    const [novoAno, setNovoAno] = useState(null)
+    const [ultVacina, setUltVacinaEdit] = useState(route.params.ultVacina)
+    const [anoAplicacao, setAnoAplicacaoEdit] = useState(route.params.anoAplicacao)
+    const idAnimal = route.params.id
+  
+    function cadVacina(id, idBoi, novaVacina, novoAno){
+      database.collection(route.params.idUser).doc(id).update({
         idBoi: idBoi,
-        tipo: tipo,
-        peso: peso,
-        data: data,
-        valor: valor,
-        ultVacina: null,
-        anoAplicacao: null,
-        class: 'animal'
-        
+        ultVacina: novaVacina,
+        anoAplicacao: novoAno
       })
       Alert.alert(
-        'Aviso', 'Animal cadastrado com Sucesso!',
+        'Aviso', 'Vacina cadastrado com Sucesso!',
         [
             {text: "OK", style: 'cancel',}
         ],
        )
-      navigation.navigate("GerenciarAnimais", {idUser: route.params.idUser});
+      navigation.navigate("ListaVacinal", {idUser:route.params.idUser})
     }
 
    
 
     return(
       <View>
-          <Text style={styles.texto}> coloque a identificacão do animal:
-          </Text>
-          <View style={styles.viewCampoTextoId}>
-          <TextInput
-                style={styles.CampodeTexto3}
-                placeholder="id brinco"
-                type="numeric"
-                keyboardType= "numeric"
-                //keyboardAppearance="dark"
-                onChangeText={(text)=> setID(text)}
-                value={idBoi}
-          />
-          <TouchableOpacity  style={styles.botaoAjuda} onPress={()=>{alertAjuda()}}>
-                <Icon name="help" size={20} color="white"/>
-          </TouchableOpacity>
+          <View style={styles.viewItems}>
+              <Text style={styles.textoDetalhes}>Id Brinco: {idBoi}</Text>
+              <Text style={styles.textoDetalhes}>Ultima Vacina: {ultVacina}</Text>
+              <Text style={styles.textoDetalhes}>Ano: {anoAplicacao}</Text>
           </View>
-          <Text style={styles.texto}> coloque o peso do animal
+          <Text style={styles.texto}> Tipo da Vacina:
           </Text>
           <TextInput
                 style={styles.CampodeTexto2}
-                placeholder="Peso do animal"
-                type="numeric"
+                placeholder="Tipo Vacina "
+                type="text"
+                onChangeText={(text)=> setNovaVacina(text)}
+                value={novaVacina}
+          />
+          <Text style={styles.texto}> Ano da aplicacão:
+          </Text>
+          <TextInput
+                style={styles.CampodeTexto2}
+                placeholder="Ano "
                 keyboardType= "numeric"
-                //keyboardAppearance="dark"
-                onChangeText={(text)=> setPeso(text)}
-                value={peso}
-          />
-        
-          <Text style={styles.texto}> coloque o tipo do animal
-          </Text>
-          <TextInput
-                style={styles.CampodeTexto2}
-                placeholder="ex: corte ou cria"
                 type="text"
-                keyboardAppearance="dark"
-                onChangeText={(text)=> setTipo(text)}
-                value={tipo}
-          />
-          <Text style={styles.texto}> data da aquisicão
-          </Text>
-          <TextInput
-                style={styles.CampodeTexto2}
-                placeholder="data "
-                type="date"
-                onChangeText={(text)=> setData(text)}
-                value={data}
-          />
-          <Text style={styles.texto}> preco do animal
-          </Text>
-          <TextInput
-                style={styles.CampodeTexto2}
-                placeholder="valor "
-                type="text"
-                onChangeText={(text)=> setValor(text)}
-                value={valor}
+                onChangeText={(text)=> setNovoAno(text)}
+                value={novoAno}
           />
           <TouchableOpacity 
             style={styles.botaoLogin}
             onPress={()=>{
-              addAnimal()
+              cadVacina(idAnimal, idBoi, novaVacina,novoAno)
             }}
           >
-            <Text style={styles.textoBotao}>Cadastrar</Text>
+            <Text style={styles.textoBotao}>Registrar Vacina</Text>
           </TouchableOpacity>
         
      

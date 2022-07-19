@@ -58,7 +58,7 @@ export default function Detalhes({navigation, route}) {
                                         <Text style={styles.textoItemTitle}>Detalhes:</Text>
                                         <Text style={styles.textoDetalhes}>Id Brinco: {item.idBoi}</Text>
                                         <Text style={styles.textoDetalhes}>Tipo do Animal: {item.tipo} </Text>
-                                        <Text style={styles.textoDetalhes}>Peso do Animal: {item.peso} KG</Text>
+                                        <Text style={styles.textoDetalhes}>Peso do Animal: {item.peso} </Text>
                                         <Text style={styles.textoDetalhes}>Data de aquisicão: {item.data}</Text>
                                         <Text style={styles.textoDetalhes}>Valor do Animal: R$ {item.valor}</Text>
                                         <Text style={styles.textoDetalhes}>controle: {item.class}</Text>

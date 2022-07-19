@@ -22,7 +22,13 @@ export default function CadastrarAnimal({ navigation, route }) {
       data: data,
       valor: valor
     })
-    navigation.navigate("Detalhes", {idUser:route.params.idUser})
+    Alert.alert(
+      'Aviso', 'Dados Alterados com Sucesso!',
+      [
+          {text: "OK", style: 'cancel',}
+      ],
+     )
+    navigation.navigate("ListaAnimal", {idUser:route.params.idUser})
   }
 
     return(
