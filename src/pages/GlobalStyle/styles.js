@@ -288,6 +288,42 @@ textoTitleQtd:{
         marginLeft: 10,
         marginRight: 10
  },
+ 
+
+ CampodeTexto3:{
+        fontSize: 20,
+        padding: 15,
+        width:'75%',
+        backgroundColor: 'white',
+        textAlign: 'left',
+        borderStyle: "solid",
+        borderBottomColor: "black",
+        borderWidth: 3,
+        borderRadius: 25,
+        marginLeft: 10,
+        marginRight:10
+        
+ },
+
+viewCampoTextoId:{
+        flexDirection: 'row',
+        justifyContent:"center",
+         borderStyle: "solid",
+        borderBottomColor: "black",
+},
+
+botaoAjuda:{
+        height: 50,
+        margin: 5,
+        marginRight:5,
+        padding: 10,
+        justifyContent:"center",
+        width:50,
+        backgroundColor: "black",
+        color: "white",
+        borderRadius: 30,
+        borderWidth: 2 
+},
 
 // Tela Arroba
 

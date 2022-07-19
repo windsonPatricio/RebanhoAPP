@@ -7,7 +7,7 @@ import Login from './src/pages/Login/';
 import Pagina from './src/pages/Pagina/';
 import NovoUser from './src/pages/NovoUser/';
 import GerenciarAnimais from './src/pages/GerenciarAnimais/';
-import Detalhes from './src/pages/Detalhes';
+import ListaAnimal from './src/pages/ListaAnimal';
 import CadastrarAnimal from './src/pages/CadastrarAnimal';
 import EditarAnimal from './src/pages/EditarAnimal';
 import PrecoArroba from './src/pages/webService/PrecoArroba';
@@ -61,8 +61,8 @@ export default function App({navigation}) {
                 }}
               />
               <Stack.Screen
-                name = "Detalhes"
-                component = {Detalhes}
+                name = "ListaAnimal"
+                component = {ListaAnimal}
                 options={{
                   title: "Animais cadastrados"
                 

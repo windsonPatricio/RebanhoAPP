@@ -33,7 +33,7 @@ export default function Detalhes({navigation, route}) {
                                         <Text style={styles.textoQtd}> {animais.length}</Text>
                                     </View>
                                     <View style={styles.viewBotoes}>
-                                        <TouchableOpacity  style={styles.botaoListar} onPress={()=> navigation.navigate("Detalhes", {
+                                        <TouchableOpacity  style={styles.botaoListar} onPress={()=> navigation.navigate("ListaAnimal", {
                                             idUser: route.params.idUser
                                         })}>
                                             <Text style={styles.textoBotaoListar}>Listar</Text>
