@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, View, ScrollView, KeyboardAvoidingView, Text, TextInput, TouchableOpacity } from "react-native";
+import { Alert, View, KeyboardAvoidingView, Text, TextInput, TouchableOpacity } from "react-native";
 import firebase from '../../config/configFirebase'
 import styles from "../GlobalStyle/styles";
 
@@ -38,8 +38,7 @@ export default function CadastrarAnimal({ navigation, route }) {
    
 
     return(
-      <View behavior="position" enabled>
-        
+      <View>
           <Text style={styles.texto}> coloque a identificacão do animal:
           </Text>
           <TextInput
@@ -76,6 +75,7 @@ export default function CadastrarAnimal({ navigation, route }) {
                 onChangeText={(text)=> setPeso(text)}
                 value={peso}
           />
+        
           <Text style={styles.texto}> coloque o tipo do animal
           </Text>
           <TextInput
@@ -113,6 +113,7 @@ export default function CadastrarAnimal({ navigation, route }) {
             <Text style={styles.textoBotao}>Cadastrar</Text>
           </TouchableOpacity>
         
+     
         </View>
       )
     }
