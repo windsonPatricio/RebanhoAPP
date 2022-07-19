@@ -56,9 +56,9 @@ export default function Detalhes({navigation, route}) {
                                 <View  style={styles.viewDetalhesSuperior}>
                                     <View style={styles.viewItems}>
                                         <Text style={styles.textoItemTitle}>Detalhes:</Text>
-                                        <Text style={styles.textoDetalhes}>Identifição: {item.idBoi}</Text>
-                                        <Text style={styles.textoDetalhes}>Tipo do Animal: {item.tipo} KG</Text>
-                                        <Text style={styles.textoDetalhes}>Peso do Animal: {item.peso}</Text>
+                                        <Text style={styles.textoDetalhes}>Id Brinco: {item.idBoi}</Text>
+                                        <Text style={styles.textoDetalhes}>Tipo do Animal: {item.tipo} </Text>
+                                        <Text style={styles.textoDetalhes}>Peso do Animal: {item.peso} KG</Text>
                                         <Text style={styles.textoDetalhes}>Data de aquisicão: {item.data}</Text>
                                         <Text style={styles.textoDetalhes}>Valor do Animal: R$ {item.valor}</Text>
                                         <Text style={styles.textoDetalhes}>controle: {item.class}</Text>
@@ -71,8 +71,11 @@ export default function Detalhes({navigation, route}) {
                                         </TouchableOpacity>
                                         <TouchableOpacity  style={styles.botaoEditar} onPress={()=> navigation.navigate("EditarAnimal", {
                                             id: item.id,
+                                            idBoi: item.idBoi,
+                                            data: item.data,
                                             peso: item.peso,
                                             tipo: item.tipo,
+                                            valor: item.valor,
                                             idUser: route.params.idUser
                                         })}>
                                             <Icon2 name="edit" size={20} color="white"/>
