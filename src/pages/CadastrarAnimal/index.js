@@ -6,7 +6,7 @@ import styles from "../GlobalStyle/styles";
 
 export default function CadastrarAnimal({ navigation, route }) {
     const database  = firebase.firestore();
-    const [id, setID] = useState(null);
+    const [idBoi, setID] = useState(null);
     const [tipo, setTipo] = useState(null);
     const [peso, setPeso] = useState(null);
     const [data, setData] = useState(null);
@@ -16,7 +16,7 @@ export default function CadastrarAnimal({ navigation, route }) {
    
     function addAnimal(){
       database.collection(route.params.idUser).add({
-        id: id,
+        idBoi: idBoi,
         tipo: tipo,
         peso: peso,
         data: data,
@@ -49,7 +49,7 @@ export default function CadastrarAnimal({ navigation, route }) {
                 keyboardType= "numeric"
                 //keyboardAppearance="dark"
                 onChangeText={(text)=> setID(text)}
-                value={id}
+                value={idBoi}
           />
             <TouchableOpacity 
             style={styles.botaoLogin}
