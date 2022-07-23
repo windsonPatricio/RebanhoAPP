@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from '../GlobalStyle/styles';
 
 
-export default function Detalhes({navigation, route}) { 
+export default function ListaVacinal({navigation, route}) { 
     const database  = firebase.firestore();
     const [animais, setAnimais] = useState([]);
    

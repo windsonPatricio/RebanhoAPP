@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/Entypo';
 
 
 
-export default function CadastrarAnimal({ navigation, route }) {
+export default function CadastrarVacina({ navigation, route }) {
     const database  = firebase.firestore();
     const [idBoi, setIdBoiEdit] = useState(route.params.idBoi)
     const [novaVacina, setNovaVacina] = useState(null)

@@ -6,7 +6,7 @@ import firebase from '../../config/configFirebase'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
-export default function Login({navigation}) {
+export default function NovoLogin({navigation}) {
 
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");

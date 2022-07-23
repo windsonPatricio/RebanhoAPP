@@ -8,7 +8,7 @@ import styles from '../GlobalStyle/styles';
 const logo = require("../Imagem/ImgHome.png");
 
 
-export default function Detalhes({navigation, route}) { 
+export default function GerenciarAnimais({navigation, route}) { 
     const database  = firebase.firestore();
     const [animais, setAnimais] = useState([]);
     

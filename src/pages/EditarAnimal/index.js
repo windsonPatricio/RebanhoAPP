@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text,Alert, TextInput, TouchableOpacity } from "react-native";
 import firebase from '../../config/configFirebase'
 import styles from "../GlobalStyle/styles";
 
 
-export default function CadastrarAnimal({ navigation, route }) {
+export default function EditarAnimal({ navigation, route }) {
     const database  = firebase.firestore();
     const [idBoi, setIdBoiEdit] = useState(route.params.idBoi)
     const [peso, setPesoEdit] = useState(route.params.peso)

@@ -12,7 +12,7 @@ import CadastrarAnimal from './src/pages/CadastrarAnimal';
 import EditarAnimal from './src/pages/EditarAnimal';
 import ListaVacinal from './src/pages/ListaVacinal';
 import CadastrarVacina from './src/pages/CadastrarVacina';
-import PrecoArroba from './src/pages/webService/PrecoArroba';
+import Financeiro from './src/pages/Financeiro';
 
 const Stack = createStackNavigator()
 
@@ -104,9 +104,9 @@ export default function App({navigation}) {
               />  
               <Stack.Screen
                 name = "Financeiro"
-                component = {PrecoArroba}
+                component = {Financeiro}
                 options={{
-                  title: "Cotacao do preco do Animal"
+                  title: "Financeiro"
                 }}
               />         
             </Stack.Navigator>

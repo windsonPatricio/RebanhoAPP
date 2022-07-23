@@ -324,6 +324,20 @@ botaoAjuda:{
         borderRadius: 30,
         borderWidth: 2 
 },
+//Tela Financeiro
+
+viewFin:{
+        justifyContent: "center",
+        width: "100%",
+        marginLeft: 5
+},
+
+textoFin:{
+        fontSize: 35,
+        marginLeft:80,
+        marginTop: 5,
+        fontWeight:"bold"
+},
 
 // Tela Arroba
 
