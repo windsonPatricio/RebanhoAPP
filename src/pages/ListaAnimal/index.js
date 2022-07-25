@@ -60,7 +60,7 @@ export default function ListaAnimal({navigation, route}) {
                                         <Text style={styles.textoDetalhes}>Tipo do Animal: {item.tipo} </Text>
                                         <Text style={styles.textoDetalhes}>Peso do Animal: {item.peso} </Text>
                                         <Text style={styles.textoDetalhes}>Data de aquisicão: {item.data}</Text>
-                                        <Text style={styles.textoDetalhes}>Valor do Animal: R$ {item.valor}</Text>
+                                        <Text style={styles.textoDetalhes}>Valor do Animal: R$ {item.valorCompra}</Text>
                                         <Text style={styles.textoDetalhes}>controle: {item.class}</Text>
                                        
                                     

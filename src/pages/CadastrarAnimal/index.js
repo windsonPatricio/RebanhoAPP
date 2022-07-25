@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { Alert, View, KeyboardAvoidingView, Text, TextInput, TouchableOpacity } from "react-native";
+import { Alert, View, Text, TextInput, TouchableOpacity } from "react-native";
 import firebase from '../../config/configFirebase'
 import styles from "../GlobalStyle/styles";
 import Icon from 'react-native-vector-icons/Entypo';
+import DropDownPicker from "react-native-dropdown-picker";
+import { TextInputMask } from 'react-native-masked-text'
+
 
 
 
@@ -10,11 +13,23 @@ import Icon from 'react-native-vector-icons/Entypo';
 export default function CadastrarAnimal({ navigation, route }) {
     const database  = firebase.firestore();
     const [idBoi, setID] = useState(null);
-    const [tipo, setTipo] = useState(null);
     const [peso, setPeso] = useState(null);
     const [data, setData] = useState(null);
-    const [valor, setValor] = useState(null);
-    
+    const [valorCompra, setValorCompra] = useState(null);
+    const [tipo, setTipo] = useState(null);
+
+
+    //select Tipo Animal
+    // const [openTipo, setOpenTipo] = useState(false);
+    // const [valueTipo, setValueTipo] = useState('Selecione...');
+    // const [tipo, setTipo] = useState([
+    //   {label: 'Selecione...', value:'Selecione'},
+    //   {label: 'Cria', value: 'Cria'},
+    //   {label: 'Corte', value: 'Corte'},
+    //   {label: 'Bezerro', value: 'Bezerro'},
+    // ]);
+   
+
    function alertAjuda(){
     
       Alert.alert(
@@ -32,7 +47,7 @@ export default function CadastrarAnimal({ navigation, route }) {
         tipo: tipo,
         peso: peso,
         data: data,
-        valor: valor,
+        valorCompra: valorCompra,
         ultVacina: 'Não aplicada',
         anoAplicacao: 'Não aplicada',
         class: 'animal'
@@ -78,35 +93,59 @@ export default function CadastrarAnimal({ navigation, route }) {
                 onChangeText={(text)=> setPeso(text)}
                 value={peso}
           />
-        
+           
           <Text style={styles.texto}> coloque o tipo do animal
           </Text>
           <TextInput
                 style={styles.CampodeTexto2}
-                placeholder="ex: corte ou cria"
+                placeholder="ex.: Cria ou Corte "
                 type="text"
-                keyboardAppearance="dark"
                 onChangeText={(text)=> setTipo(text)}
                 value={tipo}
           />
+        
+          {/* <DropDownPicker
+          open={openTipo}
+          value={valueTipo}
+          items= {tipo}
+          setOpen={setOpenTipo}
+          setValue={setValueTipo}
+          setItems={setTipo}
+          onChangeText={item => setValueTipo(item.value)}
+          zIndex={2}
+
+          style={styles.CampodeTexto2}
+          /> */}
+
           <Text style={styles.texto}> data da aquisicão
           </Text>
-          <TextInput
-                style={styles.CampodeTexto2}
-                placeholder="data "
-                type="date"
-                onChangeText={(text)=> setData(text)}
-                value={data}
+          <TextInputMask
+            type={'datetime'}
+            placeholder="DD/MM/AAAA "
+            options={{
+              format: 'DD/MM/YYYY'
+            }}
+            value={data}
+            onChangeText={text => { setData(text) }}
+            style={styles.CampodeTexto2}
           />
           <Text style={styles.texto}> preco do animal
           </Text>
-          <TextInput
+          <TextInputMask
+            type={'money'}
+            placeholder="Valor de compra "
+            value={valorCompra}
+            onChangeText={text => {setValorCompra(text)}}
+            style={styles.CampodeTexto2}
+          />
+          {/* <TextInput
                 style={styles.CampodeTexto2}
                 placeholder="valor "
                 type="text"
                 onChangeText={(text)=> setValor(text)}
                 value={valor}
-          />
+                
+          /> */}
           <TouchableOpacity 
             style={styles.botaoLogin}
             onPress={()=>{
