@@ -324,6 +324,33 @@ botaoAjuda:{
         borderRadius: 30,
         borderWidth: 2 
 },
+// Tela gerencia vacinal
+
+viewDetalhesVacina:{
+        flexDirection: "column",
+        backgroundColor:"white",
+        borderRadius: 30,
+        marginLeft:5,
+        marginRight:5,
+        borderWidth:3,
+        padding: 10,
+        margin: 10
+},
+
+viewBotoesVacina:{
+        flexDirection: "row",
+        width: "50%",
+}, 
+
+botaoVacina:{
+        backgroundColor:"black",
+        textAlign: "center",
+        fontSize: 20,
+        margin: 10,
+        width:"90%",
+        borderRadius: 35
+},
+
 //Tela Financeiro
 
 viewFin:{

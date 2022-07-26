@@ -43,7 +43,7 @@ export default function Pagina({navigation, route}) {
                     <Text style={styles.textoBotao}>Gerenciar Animais</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.OpcoesPgInicial}
-                onPress={() =>  navigation.navigate("ListaVacinal", {idUser: route.params.idUser})}>
+                onPress={() =>  navigation.navigate("GerenciarVacinas", {idUser: route.params.idUser})}>
                     <Icon3 name="syringe" size={70} style={styles.iconeBotao}/>
                     <Text style={styles.textoBotao}>Controle vacinal</Text>
                 </TouchableOpacity>

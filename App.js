@@ -10,9 +10,12 @@ import GerenciarAnimais from './src/pages/GerenciarAnimais/';
 import ListaAnimal from './src/pages/ListaAnimal/';
 import CadastrarAnimal from './src/pages/CadastrarAnimal';
 import EditarAnimal from './src/pages/EditarAnimal';
+import GerenciarVacinas from './src/pages/GerenciarVacinas';
 import ListaVacinal from './src/pages/ListaVacinal';
 import CadastrarVacina from './src/pages/CadastrarVacina';
+import EditarVacina from './src/pages/EditarVacina';
 import Financeiro from './src/pages/Financeiro';
+
 
 const Stack = createStackNavigator()
 
@@ -90,6 +93,14 @@ export default function App({navigation}) {
                 name = "ListaVacinal"
                 component = {ListaVacinal}
                 options={{
+                  title: "Vacinas aplicadas"
+                
+                }}
+              />  
+                <Stack.Screen
+                name = "GerenciarVacinas"
+                component = {GerenciarVacinas}
+                options={{
                   title: "Controle Vacinal"
                 
                 }}
@@ -102,6 +113,14 @@ export default function App({navigation}) {
                 
                 }}
               />  
+                <Stack.Screen
+                name = "EditarVacina"
+                component = {EditarVacina}
+                options={{
+                  title: "Editar dados da Vacina"
+                
+                }}
+              />   
               <Stack.Screen
                 name = "Financeiro"
                 component = {Financeiro}

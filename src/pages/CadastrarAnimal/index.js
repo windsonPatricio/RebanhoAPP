@@ -48,8 +48,6 @@ export default function CadastrarAnimal({ navigation, route }) {
         peso: peso,
         data: data,
         valorCompra: valorCompra,
-        ultVacina: 'Não aplicada',
-        anoAplicacao: 'Não aplicada',
         class: 'animal'
         
       })
@@ -138,14 +136,6 @@ export default function CadastrarAnimal({ navigation, route }) {
             onChangeText={text => {setValorCompra(text)}}
             style={styles.CampodeTexto2}
           />
-          {/* <TextInput
-                style={styles.CampodeTexto2}
-                placeholder="valor "
-                type="text"
-                onChangeText={(text)=> setValor(text)}
-                value={valor}
-                
-          /> */}
           <TouchableOpacity 
             style={styles.botaoLogin}
             onPress={()=>{

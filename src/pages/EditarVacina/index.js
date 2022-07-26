@@ -9,32 +9,27 @@ import { TextInputMask } from 'react-native-masked-text'
 
 export default function CadastrarVacina({ navigation, route }) {
     const database  = firebase.firestore();
-    const [idBoi, setIdBoi] = useState(route.params.idBoi)
-    const [tipoVacina, setTipoVacina] = useState(null)
-    const [dataAplicacao, setDataAplicacao] = useState(null)
-    const idAnimal = route.params.id
-  
-   
-    
-    function addVacina(){
-      database.collection(route.params.idUser).add({
-        idAnimal: idAnimal,
-        idBoi: idBoi,
+    const [tipoVacina, setTipoVacinaEdit] = useState(route.params.tipo)
+    const [dataAplicacao, setDataAplicacaoEdit] = useState(route.params.data)
+    const idVacina = route.params.id
+    const idAnimal = route.params.idAnimal
+
+    function editVacina(id, tipoVacina, dataAplicacao){
+      database.collection(route.params.idUser).doc(id).update({
         tipoVacina: tipoVacina,
         dataAplicacao: dataAplicacao,
-        class: 'vacina'
-        
       })
       Alert.alert(
-        'Aviso', 'Vacina cadastrada com Sucesso!',
+        'Aviso', 'Dados Alterados com Sucesso!',
         [
             {text: "OK", style: 'cancel',}
         ],
        )
-      navigation.navigate("GerenciarVacinas", {idUser: route.params.idUser});
+      navigation.navigate("ListaVacinal", {
+        idUser:route.params.idUser,
+        idAnimal: idAnimal
+      })
     }
-
-   
 
     return(
       <View>
@@ -44,7 +39,7 @@ export default function CadastrarVacina({ navigation, route }) {
                 style={styles.CampodeTexto2}
                 placeholder="Tipo Vacina "
                 type="text"
-                onChangeText={(text)=> setTipoVacina(text)}
+                onChangeText={setTipoVacinaEdit}
                 value={tipoVacina}
           />
           <Text style={styles.texto}> data da aplicacão:
@@ -56,16 +51,16 @@ export default function CadastrarVacina({ navigation, route }) {
               format: 'DD/MM/YYYY'
             }}
             value={dataAplicacao}
-            onChangeText={text => { setDataAplicacao(text) }}
+            onChangeText={setDataAplicacaoEdit }
             style={styles.CampodeTexto2}
           />
           <TouchableOpacity 
             style={styles.botaoLogin}
             onPress={()=>{
-              addVacina()
+              editVacina(idVacina, tipoVacina, dataAplicacao)
             }}
           >
-            <Text style={styles.textoBotao}>Registrar Vacina</Text>
+            <Text style={styles.textoBotao}>Alterar</Text>
           </TouchableOpacity>
         
      
