@@ -42,13 +42,16 @@ export default function CadastrarAnimal({ navigation, route }) {
    }
    
     function addAnimal(){
+      const valor =  valorCompra.replace('R$', "");
+
       database.collection(route.params.idUser).add({
         idBoi: idBoi,
         tipo: tipo,
         peso: peso,
         data: data,
-        valorCompra: valorCompra,
-        class: 'animal'
+        valorCompra: valor,
+        class: 'animal',
+        status: 'comprado'
         
       })
       Alert.alert(
@@ -131,6 +134,13 @@ export default function CadastrarAnimal({ navigation, route }) {
           </Text>
           <TextInputMask
             type={'money'}
+            options={{
+              precision: 2,
+              separator: ',',
+              delimiter: '.',
+              unit: 'R$',
+              suffixUnit: ''
+            }}
             placeholder="Valor de compra "
             value={valorCompra}
             onChangeText={text => {setValorCompra(text)}}

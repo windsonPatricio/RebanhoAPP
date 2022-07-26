@@ -27,12 +27,13 @@ export default function EditarAnimal({ navigation, route }) {
     }
  
   function editAnimal(id, idBoi, peso, tipo, data, valorCompra){
+    const valor =  valorCompra.replace('R$', "");
     database.collection(route.params.idUser).doc(id).update({
       idBoi: idBoi,
       peso: peso,
       tipo: tipo,
       data: data,
-      valorCompra: valorCompra
+      valorCompra: valor
     })
     Alert.alert(
       'Aviso', 'Dados Alterados com Sucesso!',
