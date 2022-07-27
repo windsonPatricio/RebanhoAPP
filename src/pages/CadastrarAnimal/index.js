@@ -67,7 +67,7 @@ export default function CadastrarAnimal({ navigation, route }) {
 
     return(
       <View>
-          <Text style={styles.texto}> coloque a identificacão do animal:
+          <Text style={styles.texto}> coloque a identificação do animal:
           </Text>
           <View style={styles.viewCampoTextoId}>
           <TextInput
@@ -118,7 +118,7 @@ export default function CadastrarAnimal({ navigation, route }) {
           style={styles.CampodeTexto2}
           /> */}
 
-          <Text style={styles.texto}> data da aquisicão
+          <Text style={styles.texto}> data da aquisição
           </Text>
           <TextInputMask
             type={'datetime'}

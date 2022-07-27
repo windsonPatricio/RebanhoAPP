@@ -28,6 +28,7 @@ export default function GerenciarAnimais({navigation, route}) {
                 <ScrollView style={styles.scroll }>
                             <Text style={styles.textoTitleQtd}> Visão Geral</Text>
                             <Text style={styles.textoTitleQtd}> Animais cadastrados</Text>
+                              
                                 <View  style={styles.viewDetalhesSuperior}>
                                     <View style={styles.viewQtd}>
                                         <Text style={styles.textoQtd}> {animais.length}</Text>
@@ -40,6 +41,7 @@ export default function GerenciarAnimais({navigation, route}) {
                                         </TouchableOpacity>
                                     </View>
                                 </View>
+                             
 
                         <TouchableOpacity  style={styles.botaoLogin} onPress={()=> navigation.navigate("CadastrarAnimal", {
                             idUser: route.params.idUser })}>

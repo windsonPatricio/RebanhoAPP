@@ -52,14 +52,17 @@ export default function ListaAnimal({navigation, route}) {
                             data={animais}
                             renderItem={( { item } )=>{
                             return(
-                            
+                                   
+                                <View>
+                                {item.class === "animal"
+                                ? 
                                 <View  style={styles.viewDetalhesSuperior}>
                                     <View style={styles.viewItems}>
                                         <Text style={styles.textoItemTitle}>Detalhes:</Text>
-                                        <Text style={styles.textoDetalhes}>Id Brinco: {item.idBoi}</Text>
+                                        <Text style={styles.textoDetalhes}>Id Brinco: {item.length}</Text>
                                         <Text style={styles.textoDetalhes}>Tipo do Animal: {item.tipo} </Text>
                                         <Text style={styles.textoDetalhes}>Peso do Animal: {item.peso} </Text>
-                                        <Text style={styles.textoDetalhes}>Data de aquisicão: {item.data}</Text>
+                                        <Text style={styles.textoDetalhes}>Data de aquisição: {item.data}</Text>
                                         <Text style={styles.textoDetalhes}>Valor do Animal: R$ {item.valorCompra}</Text>
                                         <Text style={styles.textoDetalhes}>controle: {item.class}</Text>
                                        
@@ -82,6 +85,10 @@ export default function ListaAnimal({navigation, route}) {
                                         </TouchableOpacity>
                                     </View>
                                 </View>
+                                :
+                                    <View></View>
+                                } 
+                            </View>
                             )
                             }}
                         />

@@ -28,8 +28,13 @@ export default function GerenciarVacinas({navigation, route}) {
                             data={animais}
                             renderItem={( { item } )=>{
                             return(
-                            
+                                 
+                              <View>
+                                {item.class === "animal"
+                                ? 
                                 <View  style={styles.viewDetalhesVacina}>
+                                 
+                                  
                                     <View style={styles.viewItems}>
                                         <Text style={styles.textoItemTitle}>Detalhes:</Text>
                                         <Text style={styles.textoDetalhes}>Id Brinco: {item.idBoi}</Text>
@@ -41,19 +46,24 @@ export default function GerenciarVacinas({navigation, route}) {
                                             id: item.id,
                                             idBoi: item.idBoi,
                                              })}>
-                                            <Text style={styles.textoBotao}>Registrar vacinacão</Text>
+                                            <Text style={styles.textoBotao}>Registrar vacinação</Text>
                                      </TouchableOpacity>
                                     
                                      <TouchableOpacity  style={styles.botaoVacina} onPress={()=> navigation.navigate("ListaVacinal", {
                                             idUser: route.params.idUser,
                                             idAnimal: item.id,
-                                            idBoi: item.idBoi,
+                                            idBoi: item.idBoi, 
                                             })}>
                                             <Text style={styles.textoBotao}>Vacinas Aplicadas</Text>
                                      </TouchableOpacity>
                                     </View>
-    
+                                    </View>
+                                    
+                                :
+                                <View></View>
+                                } 
                                 </View>
+                              
                             )
                             }}
                         />

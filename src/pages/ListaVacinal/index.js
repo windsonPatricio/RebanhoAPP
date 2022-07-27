@@ -62,7 +62,7 @@ export default function ListaVacinal({navigation, route}) {
                                             <Text style={styles.textoItemTitle}>Detalhes:</Text>
                                             <Text style={styles.textoDetalhes}>Id Brinco: {item.idBoi}</Text>
                                             <Text style={styles.textoDetalhes}>Tipo Vacina: {item.tipoVacina} </Text>
-                                            <Text style={styles.textoDetalhes}>Data aplicacão: {item.dataAplicacao} </Text>
+                                            <Text style={styles.textoDetalhes}>Data aplicação: {item.dataAplicacao} </Text>
                                         </View>
                                         <View style={styles.viewBotoes}>
                                             <TouchableOpacity  style={styles.botaoEditar} onPress={()=>{delVacina(item.id)}}>

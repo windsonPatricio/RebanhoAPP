@@ -47,7 +47,7 @@ export default function CadastrarVacina({ navigation, route }) {
                 onChangeText={(text)=> setTipoVacina(text)}
                 value={tipoVacina}
           />
-          <Text style={styles.texto}> data da aplicacão:
+          <Text style={styles.texto}> data da aplicação:
           </Text>
           <TextInputMask
             type={'datetime'}
