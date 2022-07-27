@@ -11,7 +11,14 @@ const logo = require("../Imagem/ImgHome.png");
 export default function GerenciarAnimais({navigation, route}) { 
     const database  = firebase.firestore();
     const [animais, setAnimais] = useState([]);
-    
+    const animaisCad = [];
+
+
+    animais.forEach((data)=>{
+        if(data.class === "animal"){
+            animaisCad.push(data);
+        }
+    })
 
     useEffect(() => {
       database.collection(route.params.idUser).onSnapshot((query) => {
@@ -31,7 +38,7 @@ export default function GerenciarAnimais({navigation, route}) {
                               
                                 <View  style={styles.viewDetalhesSuperior}>
                                     <View style={styles.viewQtd}>
-                                        <Text style={styles.textoQtd}> {animais.length}</Text>
+                                        <Text style={styles.textoQtd}> {animaisCad.length}</Text>
                                     </View>
                                     <View style={styles.viewBotoes}>
                                         <TouchableOpacity  style={styles.botaoListar} onPress={()=> navigation.navigate("ListaAnimal", {
