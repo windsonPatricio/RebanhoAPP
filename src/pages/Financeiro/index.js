@@ -1,17 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import firebase from '../../config/configFirebase';
-import {Text, View, FlatList, TouchableOpacity, Alert, ScrollView, Image} from 'react-native';
+import {Text, View, TouchableOpacity, Alert, ScrollView,} from 'react-native';
 //formatacao css de um componente
-import Icon from 'react-native-vector-icons/AntDesign';
-import Icon2 from 'react-native-vector-icons/Entypo';
+
 import styles from '../GlobalStyle/styles';
-const logo = require("../Imagem/ImgHome.png");
+
+
+
+
 
 
 export default function Financeiro({navigation, route}) { 
     const database  = firebase.firestore();
     const [animais, setAnimais] = useState([]);
-    
+    let saldoRebanho = 0;
+  
+  
 
     useEffect(() => {
       database.collection(route.params.idUser).onSnapshot((query) => {
@@ -22,6 +26,14 @@ export default function Financeiro({navigation, route}) {
         setAnimais(list);
       });
     }, []);
+
+    animais.forEach((data)=>{
+        if(data.class === "animal"){
+            saldoRebanho += data.valorCompra;
+        }
+    })
+
+
   
     return(    
             <View>
@@ -29,7 +41,7 @@ export default function Financeiro({navigation, route}) {
                             <Text style={styles.textoTitleQtd}> Saldo Rebanho</Text>
                                 <View  style={styles.viewDetalhesSuperior}>
                                     <View style={styles.viewFin}>
-                                        <Text style={styles.textoFin}> R$ 21.000,00</Text>
+                                        <Text style={styles.textoFin}> {saldoRebanho.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
                                     </View>
                                 </View>
                                 <Text style={styles.textoTitleQtd}> Custo Total</Text>

@@ -27,7 +27,7 @@ export default function EditarAnimal({ navigation, route }) {
     }
  
   function editAnimal(id, idBoi, peso, tipo, data, valorCompra){
-    const valor =  valorCompra.replace('R$', "");
+    const valor =  parseFloat(valorCompra.replace('R$', "").replace('.', '').replace(',', '.'));
     database.collection(route.params.idUser).doc(id).update({
       idBoi: idBoi,
       peso: peso,

@@ -42,7 +42,7 @@ export default function CadastrarAnimal({ navigation, route }) {
    }
    
     function addAnimal(){
-      const valor =  valorCompra.replace('R$', "");
+      const valor =  parseFloat(valorCompra.replace('R$', "").replace('.', '').replace(',', '.'));
 
       database.collection(route.params.idUser).add({
         idBoi: idBoi,
