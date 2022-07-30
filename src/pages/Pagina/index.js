@@ -53,9 +53,9 @@ export default function Pagina({navigation, route}) {
                     <Text style={styles.textoBotao}>Financeiro</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.OpcoesPgInicial} disabled={true}
-                onPress={() => navigate("Perfil") }>
-                    <Icon4 name="gear" size={70} style={styles.iconeBotao}/>
-                    <Text style={styles.textoBotao}>Configuração</Text>
+                onPress={() => navigate("Sobre") }>
+                    <Icon name="info" size={70} style={styles.iconeBotao}/>
+                    <Text style={styles.textoBotao}>Sobre o APP</Text>
                 </TouchableOpacity>
                 </View>
            </KeyboardAvoidingView>

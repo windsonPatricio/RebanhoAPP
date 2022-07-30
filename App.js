@@ -17,6 +17,7 @@ import EditarVacina from './src/pages/GerenciarVacinas/EditarVacina';
 import Financeiro from './src/pages/Financeiro';
 import ListaDespesas from './src/pages/Financeiro/RegistrarDespesa/ListaDespesas';
 import CadastrarDespesa from './src/pages/Financeiro/RegistrarDespesa/CadastroDespesas';
+import EditarDespesa from './src/pages/Financeiro/RegistrarDespesa/EditarDespesas';
 
 const Stack = createStackNavigator()
 
@@ -145,6 +146,14 @@ export default function App({navigation}) {
                 
                 }}
               />  
+              <Stack.Screen
+                name = "EditarDespesa"
+                component = {EditarDespesa}
+                options={{
+                  title: "Editar dados da Despesa"
+                
+                }}
+              /> 
             </Stack.Navigator>
 
           </NavigationContainer>

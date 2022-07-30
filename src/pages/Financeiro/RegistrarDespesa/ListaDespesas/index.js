@@ -68,10 +68,10 @@ export default function ListaVacinal({navigation, route}) {
                                             <TouchableOpacity  style={styles.botaoEditar} onPress={()=>{delDespesa(item.id)}}>
                                                 <Icon name="closesquare" size={20} color="white"/>
                                             </TouchableOpacity>
-                                            <TouchableOpacity  style={styles.botaoEditar} onPress={()=> navigation.navigate("EditarVacina", {
+                                            <TouchableOpacity  style={styles.botaoEditar} onPress={()=> navigation.navigate("EditarDespesa", {
                                                 id: item.id,
                                                 tipo:item.tipo,
-                                                valor: item.valor,
+                                                valorDes: item.valor,
                                                 descricao: item.descricao,
                                                 idUser: route.params.idUser
                                             })}>

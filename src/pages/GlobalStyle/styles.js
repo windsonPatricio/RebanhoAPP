@@ -12,7 +12,6 @@ title:{
 },
 
 texto:{
-        textAlign:'center',
         fontSize:18,
         padding:15,
         color:TEXT_COLOR
