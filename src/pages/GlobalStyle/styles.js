@@ -351,6 +351,20 @@ botaoVacina:{
         borderRadius: 35
 },
 
+viewNaoVac:{
+        justifyContent: 'center',
+        alignContent: "center",
+        marginTop: '70%'
+},
+
+textNaoVac:{
+        textAlign:'center',
+        fontWeight:"bold",
+        fontSize:30,
+        padding: 5,
+     
+},
+
 //Tela Financeiro
 
 viewFin:{

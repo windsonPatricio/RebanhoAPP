@@ -15,7 +15,8 @@ import ListaVacinal from './src/pages/GerenciarVacinas/ListaVacinal';
 import CadastrarVacina from './src/pages/GerenciarVacinas/CadastrarVacina';
 import EditarVacina from './src/pages/GerenciarVacinas/EditarVacina';
 import Financeiro from './src/pages/Financeiro';
-
+import ListaDespesas from './src/pages/Financeiro/RegistrarDespesa/ListaDespesas';
+import CadastrarDespesa from './src/pages/Financeiro/RegistrarDespesa/CadastroDespesas';
 
 const Stack = createStackNavigator()
 
@@ -127,7 +128,23 @@ export default function App({navigation}) {
                 options={{
                   title: "Financeiro"
                 }}
-              />         
+              />     
+               <Stack.Screen
+                name = "ListaDespesas"
+                component = {ListaDespesas}
+                options={{
+                  title: "Lista de despesas"
+                
+                }}
+              />     
+               <Stack.Screen
+                name = "CadastrarDespesa"
+                component = {CadastrarDespesa}
+                options={{
+                  title: "Cadastrar despesa"
+                
+                }}
+              />  
             </Stack.Navigator>
 
           </NavigationContainer>

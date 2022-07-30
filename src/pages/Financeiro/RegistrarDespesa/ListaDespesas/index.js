@@ -1,19 +1,18 @@
 import React, {useState, useEffect} from 'react';
-import firebase from '../../../config/configFirebase';
+import firebase from '../../../../config/configFirebase';
 import {Text, View, FlatList, TouchableOpacity, Alert, ScrollView, Image} from 'react-native';
 //formatacao css de um componente
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/Entypo';
-import styles from '../../GlobalStyle/styles';
+import styles from '../../../GlobalStyle/styles';
 
 
 export default function ListaVacinal({navigation, route}) { 
     const database  = firebase.firestore();
-    const [animais, setAnimais] = useState([]);
-    const idAnimal = route.params.idAnimal
-    const vacinasCad = [];
+    const [listagem, setListagem] = useState([]);
+   
     
-    function delVacina(id) {
+    function delDespesa(id) {
         Alert.alert(
             'Confirmação', 'Deseja realmente excluir esse item?',
             [
@@ -41,54 +40,39 @@ export default function ListaVacinal({navigation, route}) {
         query.forEach((doc) => {
           list.push({ ...doc.data(), id: doc.id });
         });
-        setAnimais(list);
+        setListagem(list);
       });
     }, []);
-
-    animais.forEach((data)=>{
-        if(data.idAnimal === idAnimal){
-            vacinasCad.push(data);
-        }
-    })
   
     return(    
-            <View  >
-                {vacinasCad.length === 0
-                ?
-           
-                    <View style={styles.viewNaoVac}>
-                        <Text style={styles.textNaoVac}>Não há vacinas</Text>
-                        <Text style={styles.textNaoVac}>aplicadas</Text>
-                    </View>
-               
-                :
+            <View>
                 <ScrollView style={styles.scroll }>
                  <FlatList
                             showsVerticalScrollIndicator={false}
-                            data={animais}
+                            data={listagem}
                             renderItem={( { item } )=>{
                             return(
                                 <View>
                                     
-                                {idAnimal === item.idAnimal && item.class === "vacina"
+                                {item.class === "despesa"
                                 ?
                                     <View  style={styles.viewDetalhesSuperior}>
                                         
                                         <View style={styles.viewItems}>
                                             <Text style={styles.textoItemTitle}>Detalhes:</Text>
-                                            <Text style={styles.textoDetalhes}>Id Brinco: {item.idBoi}</Text>
-                                            <Text style={styles.textoDetalhes}>Tipo Vacina: {item.tipoVacina} </Text>
-                                            <Text style={styles.textoDetalhes}>Data aplicação: {item.dataAplicacao} </Text>
+                                            <Text style={styles.textoDetalhes}>Tipo: {item.tipo}</Text>
+                                            <Text style={styles.textoDetalhes}>Valor: {item.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </Text>
+                                            <Text style={styles.textoDetalhes}>Descrição: {item.descricao} </Text>
                                         </View>
                                         <View style={styles.viewBotoes}>
-                                            <TouchableOpacity  style={styles.botaoEditar} onPress={()=>{delVacina(item.id)}}>
+                                            <TouchableOpacity  style={styles.botaoEditar} onPress={()=>{delDespesa(item.id)}}>
                                                 <Icon name="closesquare" size={20} color="white"/>
                                             </TouchableOpacity>
                                             <TouchableOpacity  style={styles.botaoEditar} onPress={()=> navigation.navigate("EditarVacina", {
                                                 id: item.id,
-                                                idAnimal:item.idAnimal,
-                                                tipo: item.tipoVacina,
-                                                data: item.dataAplicacao,
+                                                tipo:item.tipo,
+                                                valor: item.valor,
+                                                descricao: item.descricao,
                                                 idUser: route.params.idUser
                                             })}>
                                                 <Icon2 name="edit" size={20} color="white"/>
@@ -109,8 +93,11 @@ export default function ListaVacinal({navigation, route}) {
                              ) 
                         }}
                         />
+                         <TouchableOpacity  style={styles.botaoLogin} onPress={()=> navigation.navigate("CadastrarDespesa", {
+                            idUser: route.params.idUser })}>
+                            <Text style={styles.textoBotao}>Cadastrar Despesas</Text>
+                        </TouchableOpacity>
                 </ScrollView>
-                }
            </View>
     )
 
