@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Alert, View, Text, TextInput, TouchableOpacity } from "react-native";
-import firebase from '../../config/configFirebase'
-import styles from "../GlobalStyle/styles";
+import firebase from '../../../config/configFirebase'
+import styles from "../../GlobalStyle/styles";
 import Icon from 'react-native-vector-icons/Entypo';
 import DropDownPicker from "react-native-dropdown-picker";
 import { TextInputMask } from 'react-native-masked-text'
@@ -51,14 +51,16 @@ export default function CadastrarAnimal({ navigation, route }) {
         data: data,
         valorCompra: valor,
         class: 'animal',
-        status: 'comprado'
+        status: 'comprado',
+        valorVenda: null,
+        lucroAdq: null
         
       })
       Alert.alert(
         'Aviso', 'Animal cadastrado com Sucesso!',
         [
             {text: "OK", style: 'cancel',}
-        ],
+        ], 
        )
       navigation.navigate("GerenciarAnimais", {idUser: route.params.idUser});
     }

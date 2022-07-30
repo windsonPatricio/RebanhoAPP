@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import firebase from '../../config/configFirebase';
+import firebase from '../../../config/configFirebase';
 import {Text, View, FlatList, TouchableOpacity, Alert, ScrollView, Image} from 'react-native';
 //formatacao css de um componente
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/Entypo';
-import styles from '../GlobalStyle/styles';
-const logo = require("../Imagem/ImgHome.png");
+import styles from '../../GlobalStyle/styles';
+
 
 
 export default function ListaAnimal({navigation, route}) { 
@@ -59,7 +59,7 @@ export default function ListaAnimal({navigation, route}) {
                                 <View  style={styles.viewDetalhesSuperior}>
                                     <View style={styles.viewItems}>
                                         <Text style={styles.textoItemTitle}>Detalhes:</Text>
-                                        <Text style={styles.textoDetalhes}>Id Brinco: {item.length}</Text>
+                                        <Text style={styles.textoDetalhes}>Id Brinco: {item.idBoi}</Text>
                                         <Text style={styles.textoDetalhes}>Tipo do Animal: {item.tipo} </Text>
                                         <Text style={styles.textoDetalhes}>Peso do Animal: {item.peso} </Text>
                                         <Text style={styles.textoDetalhes}>Data de aquisição: {item.data}</Text>

@@ -4,16 +4,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator} from '@react-navigation/stack';
 import {Alert} from 'react-native';
 import Login from './src/pages/Login/';
-import Pagina from './src/pages/Pagina/';
+import Home from './src/pages/Pagina';
 import NovoUser from './src/pages/NovoUser/';
 import GerenciarAnimais from './src/pages/GerenciarAnimais/';
-import ListaAnimal from './src/pages/ListaAnimal/';
-import CadastrarAnimal from './src/pages/CadastrarAnimal';
-import EditarAnimal from './src/pages/EditarAnimal';
+import ListaAnimal from './src/pages/GerenciarAnimais/ListaAnimal';
+import CadastrarAnimal from './src/pages/GerenciarAnimais/CadastrarAnimal';
+import EditarAnimal from './src/pages/GerenciarAnimais/EditarAnimal';
 import GerenciarVacinas from './src/pages/GerenciarVacinas';
-import ListaVacinal from './src/pages/ListaVacinal';
-import CadastrarVacina from './src/pages/CadastrarVacina';
-import EditarVacina from './src/pages/EditarVacina';
+import ListaVacinal from './src/pages/GerenciarVacinas/ListaVacinal';
+import CadastrarVacina from './src/pages/GerenciarVacinas/CadastrarVacina';
+import EditarVacina from './src/pages/GerenciarVacinas/EditarVacina';
 import Financeiro from './src/pages/Financeiro';
 
 
@@ -52,7 +52,7 @@ export default function App({navigation}) {
             
               <Stack.Screen
                 name = "Home"
-                component = {Pagina}
+                component = {Home}
                 options={() => ({
                   headerShown: false
                 })}

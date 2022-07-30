@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Alert, TextInput, TouchableOpacity } from "react-native";
-import firebase from '../../config/configFirebase'
-import styles from "../GlobalStyle/styles";
+import firebase from '../../../config/configFirebase'
+import styles from "../../GlobalStyle/styles";
 import { TextInputMask } from 'react-native-masked-text'
 import Icon from 'react-native-vector-icons/Entypo';
 

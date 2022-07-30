@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import firebase from '../../config/configFirebase';
+import firebase from '../../../config/configFirebase';
 import {Text, View, FlatList, TouchableOpacity, Alert, ScrollView, Image} from 'react-native';
 //formatacao css de um componente
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/Entypo';
-import styles from '../GlobalStyle/styles';
+import styles from '../../GlobalStyle/styles';
 
 
 export default function ListaVacinal({navigation, route}) { 
