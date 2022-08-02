@@ -52,8 +52,8 @@ export default function CadastrarAnimal({ navigation, route }) {
         valorCompra: valor,
         class: 'animal',
         status: 'comprado',
-        valorVenda: null,
-        lucroAdq: null
+        valorVenda: 0,
+        lucroAdq: 0
         
       })
       Alert.alert(

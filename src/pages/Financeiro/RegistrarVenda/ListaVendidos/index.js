@@ -1,30 +1,32 @@
 import React, {useState, useEffect} from 'react';
-import firebase from '../../../config/configFirebase';
-import {Text, View, FlatList, TouchableOpacity, Alert, ScrollView, Image} from 'react-native';
+import firebase from '../../../../config/configFirebase';
+import {Text, View, FlatList, TouchableOpacity, Alert, ScrollView} from 'react-native';
 //formatacao css de um componente
 import Icon from 'react-native-vector-icons/AntDesign';
-import Icon2 from 'react-native-vector-icons/Entypo';
-import styles from '../../GlobalStyle/styles';
+import styles from '../../../GlobalStyle/styles';
 
 
 
-export default function ListaAnimal({navigation, route}) { 
+export default function ListaVenda({navigation, route}) { 
     const database  = firebase.firestore();
     const [animais, setAnimais] = useState([]);
-    
-    function delAnimal(id) {
+
+    function cancVenda(id) {
         Alert.alert(
-            'Confirmação', 'Deseja realmente excluir esse item?',
+            'Confirmação', 'Deseja cancelar essa venda?',
             [
             {text: 'Sim', onPress: () => {
             //deleta o item
-                database.collection(route.params.idUser).doc(id).delete();
+            database.collection(route.params.idUser).doc(id).update({
+                status: "comprado",
+              })
                 Alert.alert(
-                    'Aviso', 'Animal excluido com Sucesso!',
+                    'Aviso', 'Venda cancelada com Sucesso!',
                     [
                         {text: "OK", style: 'cancel',}
                     ],
                    )
+                   navigation.navigate("GerenciarVenda", {idUser:route.params.idUser})
             }
             },
             {text: 'Cancel',style: 'cancel',}
@@ -54,7 +56,7 @@ export default function ListaAnimal({navigation, route}) {
                             return(
                                    
                                 <View>
-                                {item.class === "animal" && item.status === "comprado"
+                                {item.class === "animal" && item.status === "vendido"
                                 ? 
                                 <View  style={styles.viewDetalhesSuperior}>
                                     <View style={styles.viewItems}>
@@ -64,24 +66,12 @@ export default function ListaAnimal({navigation, route}) {
                                         <Text style={styles.textoDetalhes}>Peso do Animal: {item.peso} </Text>
                                         <Text style={styles.textoDetalhes}>Data de aquisição: {item.data}</Text>
                                         <Text style={styles.textoDetalhes}>Valor do Animal: {item.valorCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
-                                        <Text style={styles.textoDetalhes}>controle: {item.class}</Text>
-                                       
-                                    
+                                        <Text style={styles.textoDetalhes}>Valor de Venda: {item.valorVenda.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
+                                        <Text style={styles.textoDetalhes}>Lucro: {item.lucroAdq.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
                                     </View>
                                     <View style={styles.viewBotoes}>
-                                        <TouchableOpacity  style={styles.botaoEditar} onPress={()=>{delAnimal(item.id)}}>
+                                        <TouchableOpacity  style={styles.botaoEditar} onPress={()=>{cancVenda(item.id)}}>
                                             <Icon name="closesquare" size={20} color="white"/>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity  style={styles.botaoEditar} onPress={()=> navigation.navigate("EditarAnimal", {
-                                            id: item.id,
-                                            idBoi: item.idBoi,
-                                            data: item.data,
-                                            peso: item.peso,
-                                            tipo: item.tipo,
-                                            valorCompra: item.valorCompra,
-                                            idUser: route.params.idUser
-                                        })}>
-                                            <Icon2 name="edit" size={20} color="white"/>
                                         </TouchableOpacity>
                                     </View>
                                 </View>

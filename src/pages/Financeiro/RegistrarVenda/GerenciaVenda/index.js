@@ -1,20 +1,20 @@
 import React, {useState, useEffect} from 'react';
-import firebase from '../../config/configFirebase';
-import {Text, View, FlatList, TouchableOpacity, ScrollView} from 'react-native';
+import firebase from '../../../../config/configFirebase';
+import {Text, View, FlatList, TouchableOpacity, Alert, ScrollView, Image} from 'react-native';
 //formatacao css de um componente
-import styles from '../GlobalStyle/styles';
-const logo = require("../Imagem/ImgHome.png");
+import styles from '../../../GlobalStyle/styles';
+
 
 
 export default function GerenciarAnimais({navigation, route}) { 
     const database  = firebase.firestore();
     const [animais, setAnimais] = useState([]);
-    const animaisCad = [];
+    const animaisVend = [];
 
 
     animais.forEach((data)=>{
-        if(data.class === "animal"&& data.status === "comprado"){
-            animaisCad.push(data);
+        if(data.class === "animal"&& data.status === "vendido"){
+            animaisVend.push(data);
         }
     })
 
@@ -32,14 +32,14 @@ export default function GerenciarAnimais({navigation, route}) {
             <View>
                 <ScrollView style={styles.scroll }>
                             <Text style={styles.textoTitleQtd}> Visão Geral</Text>
-                            <Text style={styles.textoTitleQtd}> Animais cadastrados</Text>
+                            <Text style={styles.textoTitleQtd}> Animais Vendidos</Text>
                               
                                 <View  style={styles.viewDetalhesSuperior}>
                                     <View style={styles.viewQtd}>
-                                        <Text style={styles.textoQtd}> {animaisCad.length}</Text>
+                                        <Text style={styles.textoQtd}> {animaisVend.length}</Text>
                                     </View>
                                     <View style={styles.viewBotoes}>
-                                        <TouchableOpacity  style={styles.botaoListar} onPress={()=> navigation.navigate("ListaAnimal", {
+                                        <TouchableOpacity  style={styles.botaoListar} onPress={()=> navigation.navigate("ListaVendidos", {
                                             idUser: route.params.idUser
                                         })}>
                                             <Text style={styles.textoBotaoListar}>Listar</Text>
@@ -48,9 +48,9 @@ export default function GerenciarAnimais({navigation, route}) {
                                 </View>
                              
 
-                        <TouchableOpacity  style={styles.botaoLogin} onPress={()=> navigation.navigate("CadastrarAnimal", {
+                        <TouchableOpacity  style={styles.botaoLogin} onPress={()=> navigation.navigate("ListaVenda", {
                             idUser: route.params.idUser })}>
-                            <Text style={styles.textoBotao}>Cadastrar Animal</Text>
+                            <Text style={styles.textoBotao}>Realizar Venda</Text>
                         </TouchableOpacity>
                 </ScrollView>
 

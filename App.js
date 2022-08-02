@@ -18,23 +18,16 @@ import Financeiro from './src/pages/Financeiro';
 import ListaDespesas from './src/pages/Financeiro/RegistrarDespesa/ListaDespesas';
 import CadastrarDespesa from './src/pages/Financeiro/RegistrarDespesa/CadastroDespesas';
 import EditarDespesa from './src/pages/Financeiro/RegistrarDespesa/EditarDespesas';
+import ListaVendidos from './src/pages/Financeiro/RegistrarVenda/ListaVendidos';
+import ListaVenda from './src/pages/Financeiro/RegistrarVenda/ListaAnimaisParaVenda'
+import VenderAnimal from './src/pages/Financeiro/RegistrarVenda/CadastrarVenda';
+import GerenciarVenda from './src/pages/Financeiro/RegistrarVenda/GerenciaVenda';
 
 const Stack = createStackNavigator()
 
 export default function App({navigation}) {
 
-  function Logout(){
-    firebase.auth().signOut().then(() => {
-      navigation.navigate("Login")
-    }).catch(() => {
-        Alert.alert(
-            'Aviso!', 'Não é possivel realizar Logout',
-            [
-                {text: "OK", style: 'cancel',}
-            ]
-        )
-    });
-  }
+
 
   return (
           <NavigationContainer>
@@ -151,6 +144,38 @@ export default function App({navigation}) {
                 component = {EditarDespesa}
                 options={{
                   title: "Editar dados da Despesa"
+                
+                }}
+              /> 
+              <Stack.Screen
+                name = "GerenciarVenda"
+                component = {GerenciarVenda}
+                options={{
+                  title: "Gerenciar venda"
+                
+                }}
+              />
+              <Stack.Screen
+                name = "ListaVendidos"
+                component = {ListaVendidos}
+                options={{
+                  title: "Lista de animais vendidos"
+                
+                }}
+              /> 
+              <Stack.Screen
+                name = "ListaVenda"
+                component = {ListaVenda}
+                options={{
+                  title: "Lista de animais disponíveis"
+                
+                }}
+              /> 
+               <Stack.Screen
+                name = "VenderAnimal"
+                component = {VenderAnimal}
+                options={{
+                  title: "Realizar venda"
                 
                 }}
               /> 

@@ -1,38 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import firebase from '../../../config/configFirebase';
-import {Text, View, FlatList, TouchableOpacity, Alert, ScrollView, Image} from 'react-native';
+import firebase from '../../../../config/configFirebase';
+import {Text, View, FlatList, TouchableOpacity, Alert, ScrollView} from 'react-native';
 //formatacao css de um componente
-import Icon from 'react-native-vector-icons/AntDesign';
-import Icon2 from 'react-native-vector-icons/Entypo';
-import styles from '../../GlobalStyle/styles';
+import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
+import styles from '../../../GlobalStyle/styles';
 
 
 
-export default function ListaAnimal({navigation, route}) { 
+export default function ListaAnimalVenda({navigation, route}) { 
     const database  = firebase.firestore();
     const [animais, setAnimais] = useState([]);
-    
-    function delAnimal(id) {
-        Alert.alert(
-            'Confirmação', 'Deseja realmente excluir esse item?',
-            [
-            {text: 'Sim', onPress: () => {
-            //deleta o item
-                database.collection(route.params.idUser).doc(id).delete();
-                Alert.alert(
-                    'Aviso', 'Animal excluido com Sucesso!',
-                    [
-                        {text: "OK", style: 'cancel',}
-                    ],
-                   )
-            }
-            },
-            {text: 'Cancel',style: 'cancel',}
-            ],
-            {cancelable: true}, //permite cancelar ao clicar fora
-            );
-      
-    }
    
     useEffect(() => {
       database.collection(route.params.idUser).onSnapshot((query) => {
@@ -54,7 +31,7 @@ export default function ListaAnimal({navigation, route}) {
                             return(
                                    
                                 <View>
-                                {item.class === "animal"
+                                {item.class === "animal" && item.status === "comprado"
                                 ? 
                                 <View  style={styles.viewDetalhesSuperior}>
                                     <View style={styles.viewItems}>
@@ -64,21 +41,16 @@ export default function ListaAnimal({navigation, route}) {
                                         <Text style={styles.textoDetalhes}>Peso do Animal: {item.peso} </Text>
                                         <Text style={styles.textoDetalhes}>Data de aquisição: {item.data}</Text>
                                         <Text style={styles.textoDetalhes}>Valor do Animal: {item.valorCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
-                                        <Text style={styles.textoDetalhes}>controle: {item.class}</Text>
-                                       
-                                    
                                     </View>
                                     <View style={styles.viewBotoes}>
                                         <TouchableOpacity  style={styles.botaoEditar} onPress={()=> navigation.navigate("VenderAnimal", {
                                             id: item.id,
                                             idBoi: item.idBoi,
                                             data: item.data,
-                                            peso: item.peso,
-                                            tipo: item.tipo,
                                             valorCompra: item.valorCompra,
                                             idUser: route.params.idUser
                                         })}>
-                                            <Icon2 name="edit" size={20} color="white"/>
+                                            <Icon2 name="point-of-sale" size={20} color="white"/>
                                         </TouchableOpacity>
                                     </View>
                                 </View>

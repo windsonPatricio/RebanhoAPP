@@ -10,6 +10,7 @@ export default function Financeiro({navigation, route}) {
     const [animais, setAnimais] = useState([]);
     let saldoRebanho = 0;
     let saldoDespesa = 0;
+    let saldoLucro = 0;
   
   
 
@@ -24,11 +25,15 @@ export default function Financeiro({navigation, route}) {
     }, []);
 
     animais.forEach((data)=>{
-        if(data.class === "animal"){
+        if(data.class === "animal"&& data.status === "comprado"){
             saldoRebanho += data.valorCompra;
         }
         if(data.class === "despesa"){
             saldoDespesa += data.valor;
+        }
+        if(data.status === "vendido"){
+            console.log(data.lucroAdq)
+            saldoLucro += data.lucroAdq
         }
     })
 
@@ -52,11 +57,11 @@ export default function Financeiro({navigation, route}) {
                                 <Text style={styles.textoTitleQtd}> Lucro Apurado</Text>
                                 <View  style={styles.viewDetalhesSuperior}>
                                     <View style={styles.viewFin}>
-                                        <Text style={styles.textoFin}> R$ 21.000,00</Text>
+                                    <Text style={styles.textoFin}> {(saldoLucro - saldoDespesa).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
                                     </View>
                                 </View>
 
-                        <TouchableOpacity  style={styles.botaoLogin} onPress={()=> navigation.navigate("CadastrarAnimal", {
+                        <TouchableOpacity  style={styles.botaoLogin} onPress={()=> navigation.navigate("GerenciarVenda", {
                             idUser: route.params.idUser })}>
                             <Text style={styles.textoBotao}>Registro de Venda</Text>
                         </TouchableOpacity>
