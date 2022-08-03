@@ -51,7 +51,7 @@ export default function Login({navigation}) {
                           <Image style={styles.imagemLogin}
                           source={logo}/>
 
-                      <Text style={styles.texto}> Digite seu login:</Text>
+                      <Text style={styles.textoLogin}> Digite seu email:</Text>
                       <TextInput 
                         style={styles.CampodeTexto}
                         placeholder="Login"
@@ -59,7 +59,7 @@ export default function Login({navigation}) {
                         value={email}
                         />
 
-                      <Text style={styles.texto}>Digite sua senha:</Text>
+                      <Text style={styles.textoLogin}>Digite sua senha:</Text>
                       <TextInput 
                        style={styles.CampodeTexto}
                        secureTextEntry={true}

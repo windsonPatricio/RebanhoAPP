@@ -53,12 +53,12 @@ export default function NovoLogin({navigation}) {
   
                       <Text style={styles.title}> Cadastro novo Usuario</Text> 
   
-                      <Text style={styles.texto}>Digite seu nome:</Text>
+                      <Text style={styles.textoLogin}>Digite seu nome:</Text>
                       <TextInput 
                        style={styles.CampodeTexto}
                        placeholder="Digite seu Nome"
                        />
-                      <Text style={styles.texto}>Email:</Text>
+                      <Text style={styles.textoLogin}>Email:</Text>
                       <TextInput 
                         style={styles.CampodeTexto}
                         placeholder="Digite seu email"
@@ -66,7 +66,7 @@ export default function NovoLogin({navigation}) {
                         value={email}
                         />
 
-                      <Text style={styles.texto}>Digite sua senha:</Text>
+                      <Text style={styles.textoLogin}>Digite sua senha:</Text>
                       <TextInput 
                        style={styles.CampodeTexto}
                        secureTextEntry={true}
@@ -74,7 +74,7 @@ export default function NovoLogin({navigation}) {
                        onChangeText={(text)=> setSenha(text)}
                        value={senha}
                        />
-                      <Text style={styles.texto}>Confirme sua senha:</Text>
+                      <Text style={styles.textoLogin}>Confirme sua senha:</Text>
                       <TextInput 
                        style={styles.CampodeTexto}
                        secureTextEntry={true}
@@ -114,7 +114,7 @@ export default function NovoLogin({navigation}) {
                         }
                        
                       <View style={styles.linkRegistro}>
-                            <Text style={styles.texto}> Já é cadastrado</Text>
+                            <Text style={styles.textoLogin}> Já é cadastrado</Text>
                             <TouchableOpacity onPress={()=>{navigation.navigate("Login")}}>
                             <Text  style={styles.textoCadastrar}> Faça Login</Text>
                             </TouchableOpacity>

@@ -17,6 +17,13 @@ texto:{
         color:TEXT_COLOR
 },
 
+textoLogin:{
+        fontSize:18,
+        padding:15,
+        textAlign:'center',
+        color:TEXT_COLOR
+},
+
 scroll:{
 
         height:"100%"
