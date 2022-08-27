@@ -3,6 +3,7 @@ import {StyleSheet} from 'react-native';
 //Separamos as cores, para o caso de precisarmos usá-la em outro local
 export const TEXT_COLOR = "#4d4d4d";
 export const TITLE_BG_COLOR = "black";
+export const COLOR_FIN = "red";
 const styles = StyleSheet.create({
 
 // estilo geral
@@ -382,6 +383,14 @@ viewFin:{
 textoFin:{
         fontSize: 35,
         marginLeft:80,
+        marginTop: 5,
+        fontWeight:"bold"
+},
+
+textoFin2:{
+        fontSize: 35,
+        color: COLOR_FIN,
+        marginLeft: 80,
         marginTop: 5,
         fontWeight:"bold"
 },

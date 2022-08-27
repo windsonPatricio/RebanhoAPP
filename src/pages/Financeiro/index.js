@@ -57,7 +57,12 @@ export default function Financeiro({navigation, route}) {
                                 <Text style={styles.textoTitleQtd}> Lucro Apurado</Text>
                                 <View  style={styles.viewDetalhesSuperior}>
                                     <View style={styles.viewFin}>
-                                    <Text style={styles.textoFin}> {(saldoLucro - saldoDespesa).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
+                                        {(saldoLucro-saldoDespesa) > 0
+                                        ?
+                                        <Text style={styles.textoFin}> {(saldoLucro - saldoDespesa).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
+                                        :
+                                        <Text style={styles.textoFin2}> {(saldoLucro - saldoDespesa).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
+                                        }
                                     </View>
                                 </View>
 

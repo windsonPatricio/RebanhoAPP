@@ -33,7 +33,7 @@ export default function CadastrarAnimal({ navigation, route }) {
    function alertAjuda(){
     
       Alert.alert(
-        'Número de identificação', 'Número localizado no brinco preso á orelha do animal',
+        'Número de identificação', 'Número localizado no brinco preso na orelha do animal',
         [
             {text: "OK", style: 'cancel',}
         ],
