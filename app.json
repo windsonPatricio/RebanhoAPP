@@ -1,11 +1,21 @@
 {
   "expo": {
-    "name": "AppBoiNaFaixaExpo",
-    "slug": "AppBoiNaFaixaExpo",
+    "name": "RebanhoAPP",
+    "slug": "RebanhoAPP",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "platforms": [
+      "android"
+    ],
+    "android": {
+      "package": "com.windson.rebanhoApp"
+    }
   },
-  "name": "AppBoiNaFaixaExpo"
+  "android": {
+    "package": "com.windson.rebanhoAPP",
+    "versionCode": 1
+  },
+  "name": "RebanhoAPP"
 }
