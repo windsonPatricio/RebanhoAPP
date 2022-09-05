@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {Text, View, TextInput, TouchableOpacity,  KeyboardAvoidingView, Alert, Touchable} from 'react-native';
+import {Text, View, Platform, TextInput, ScrollView, TouchableOpacity,  KeyboardAvoidingView, Alert} from 'react-native';
 //formatacao css de um componente
 import styles from '../GlobalStyle/styles'
 import firebase from '../../config/configFirebase'
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
 
 
 export default function NovoLogin({navigation}) {
@@ -47,9 +48,10 @@ export default function NovoLogin({navigation}) {
 
   return (
 
-    <KeyboardAvoidingView behavior="height">
-                    <View style={styles.viewLogin}>  
-
+    <KeyboardAvoidingView 
+    behavior={Platform.OS == "ios" ? "padding" : "height"}
+    keyboardVerticalOffiset={80}>
+                    <ScrollView>  
   
                       <Text style={styles.title}> Cadastro novo Usuario</Text> 
   
@@ -122,7 +124,7 @@ export default function NovoLogin({navigation}) {
                       </View>
 
 
-                    </View>
+                    </ScrollView>
               </KeyboardAvoidingView>
   )
 

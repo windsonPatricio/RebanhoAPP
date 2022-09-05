@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Alert, View, Text, TextInput, TouchableOpacity } from "react-native";
+import { Alert, View, Text,Platform, TextInput, ScrollView, KeyboardAvoidingView, TouchableOpacity } from "react-native";
 import firebase from '../../../config/configFirebase'
 import styles from "../../GlobalStyle/styles";
 import Icon from 'react-native-vector-icons/Entypo';
-import DropDownPicker from "react-native-dropdown-picker";
 import { TextInputMask } from 'react-native-masked-text'
 
 
@@ -68,7 +67,10 @@ export default function CadastrarAnimal({ navigation, route }) {
    
 
     return(
-      <View>
+      <KeyboardAvoidingView 
+      behavior={Platform.OS == "ios"? "padding" : "heigth"}
+      keyboardVerticalOffset = {100}>
+        <ScrollView>
           <Text style={styles.texto}> coloque a identificação do animal:
           </Text>
           <View style={styles.viewCampoTextoId}>
@@ -106,19 +108,6 @@ export default function CadastrarAnimal({ navigation, route }) {
                 onChangeText={(text)=> setTipo(text)}
                 value={tipo}
           />
-        
-          {/* <DropDownPicker
-          open={openTipo}
-          value={valueTipo}
-          items= {tipo}
-          setOpen={setOpenTipo}
-          setValue={setValueTipo}
-          setItems={setTipo}
-          onChangeText={item => setValueTipo(item.value)}
-          zIndex={2}
-
-          style={styles.CampodeTexto2}
-          /> */}
 
           <Text style={styles.texto}> data da aquisição
           </Text>
@@ -144,6 +133,7 @@ export default function CadastrarAnimal({ navigation, route }) {
               suffixUnit: ''
             }}
             placeholder="Valor de compra "
+            keyboardType= "numbers-and-punctuation"
             value={valorCompra}
             onChangeText={text => {setValorCompra(text)}}
             style={styles.CampodeTexto2}
@@ -158,6 +148,7 @@ export default function CadastrarAnimal({ navigation, route }) {
           </TouchableOpacity>
         
      
-        </View>
+          </ScrollView>
+          </KeyboardAvoidingView>
       )
     }

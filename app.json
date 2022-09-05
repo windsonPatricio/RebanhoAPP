@@ -7,7 +7,8 @@
       "**/*"
     ],
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ],
     "android": {
       "package": "com.windson.rebanhoApp"
