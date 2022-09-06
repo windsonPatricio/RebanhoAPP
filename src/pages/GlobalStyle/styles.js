@@ -372,6 +372,19 @@ textNaoVac:{
      
 },
 
+CampoSelect:{
+        fontSize: 20,
+        padding: 5,
+        backgroundColor: 'white',
+        textAlign: 'left',
+        borderStyle: "solid",
+        borderBottomColor: "black",
+        borderWidth: 3,
+        borderRadius: 25,
+        marginLeft: 10,
+        marginRight: 10
+ },
+
 //Tela Financeiro
 
 viewFin:{
