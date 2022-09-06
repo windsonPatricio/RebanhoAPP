@@ -37,8 +37,7 @@ export default function Pagina({navigation, route}) {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.viewTelaInicial}>  
-                <TouchableOpacity style={styles.OpcoesPgInicial}
-                onPress={() => navigation.navigate("GerenciarAnimais", {idUser: route.params.idUser})}>
+                <TouchableOpacity style={styles.OpcoesPgInicial} onPress={() => navigation.navigate("GerenciarAnimais", {idUser: route.params.idUser})}>
                     <Icon2 name="cow" size={70} style={styles.iconeBotao}/>
                     <Text style={styles.textoBotao}>Gerenciar Animais</Text>
                 </TouchableOpacity>
