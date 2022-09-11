@@ -3,6 +3,7 @@
     "name": "RebanhoAPP",
     "slug": "RebanhoAPP",
     "version": "1.0.0",
+    // "icon":""
     "assetBundlePatterns": [
       "**/*"
     ],

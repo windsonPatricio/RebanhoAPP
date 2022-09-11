@@ -17,16 +17,6 @@ export default function CadastrarAnimal({ navigation, route }) {
     const [valorCompra, setValorCompra] = useState(null);
     const [tipo, setTipo] = useState(null);
 
-
-    //select Tipo Animal
-    // const [openTipo, setOpenTipo] = useState(false);
-    // const [valueTipo, setValueTipo] = useState('Selecione...');
-    // const [tipo, setTipo] = useState([
-    //   {label: 'Selecione...', value:'Selecione'},
-    //   {label: 'Cria', value: 'Cria'},
-    //   {label: 'Corte', value: 'Corte'},
-    //   {label: 'Bezerro', value: 'Bezerro'},
-    // ]);
    
 
    function alertAjuda(){
@@ -68,8 +58,7 @@ export default function CadastrarAnimal({ navigation, route }) {
 
     return(
       <KeyboardAvoidingView 
-      behavior={Platform.OS == "ios"? "padding" : "heigth"}
-      keyboardVerticalOffset = {100}>
+      behavior= "position">
         <ScrollView>
           <Text style={styles.texto}> coloque a identificação do animal:
           </Text>

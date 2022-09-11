@@ -48,9 +48,9 @@ export default function NovoLogin({navigation}) {
 
   return (
 
-    <KeyboardAvoidingView 
-    behavior={Platform.OS == "ios" ? "padding" : "height"}
-    keyboardVerticalOffiset={80}>
+                  <KeyboardAvoidingView
+                  style={styles.viewLogin}
+                  behavior='padding'>
                     <ScrollView>  
   
                       <Text style={styles.title}> Cadastro novo Usuario</Text> 

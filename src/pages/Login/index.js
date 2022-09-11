@@ -46,7 +46,9 @@ export default function Login({navigation}) {
 
   return (
 
-    <KeyboardAvoidingView behavior="position" enabled style={styles.viewLogin}>
+                      <KeyboardAvoidingView
+                      style={styles.viewLogin}
+                      behavior='padding'>
 
                           <Image style={styles.imagemLogin}
                           source={logo}/>

@@ -65,8 +65,6 @@ CampodeTexto:{
 // pagina login
 botaoLogin:{
         backgroundColor:"black",
-        textAlign: "center",
-        fontSize: 30,
         margin: 15,
         marginLeft: 80,
         marginRight: 80, 
@@ -80,8 +78,8 @@ viewLogin:{
 },
 
 imagemLogin:{        
-        width:350,
-        height: 350, 
+        width:200,
+        height: 200, 
         justifyContent:"center",
         alignSelf: 'center',
         marginTop: 50,
@@ -285,7 +283,7 @@ textoTitleQtd:{
 
  CampodeTexto2:{
         fontSize: 20,
-        padding: 15,
+        padding: 10,
         backgroundColor: 'white',
         textAlign: 'left',
         borderStyle: "solid",
@@ -299,7 +297,7 @@ textoTitleQtd:{
 
  CampodeTexto3:{
         fontSize: 20,
-        padding: 15,
+        padding: 10,
         width:'75%',
         backgroundColor: 'white',
         textAlign: 'left',
@@ -315,13 +313,13 @@ textoTitleQtd:{
 viewCampoTextoId:{
         flexDirection: 'row',
         justifyContent:"center",
-         borderStyle: "solid",
+        borderStyle: "solid",
         borderBottomColor: "black",
 },
 
 botaoAjuda:{
         height: 50,
-        margin: 5,
+        margin: 3,
         marginRight:5,
         padding: 10,
         justifyContent:"center",
