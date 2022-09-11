@@ -3,7 +3,13 @@
     "name": "RebanhoAPP",
     "slug": "RebanhoAPP",
     "version": "1.0.0",
-    // "icon":""
+    "icon":"./assets/icon.png",
+    // "splash": {
+    //   "image": "./assets/splash.png",
+    //   "resizeMode": "contain",
+    //   "backgroungColor": "white"
+    // },
+
     "assetBundlePatterns": [
       "**/*"
     ],
