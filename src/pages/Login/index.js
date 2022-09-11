@@ -48,7 +48,11 @@ export default function Login({navigation}) {
 
                       <KeyboardAvoidingView
                       style={styles.viewLogin}
-                      behavior='padding'>
+                      behavior={Platform.select({
+                        ios: 'padding',
+                        android: null,
+                        })}
+                       >
 
                           <Image style={styles.imagemLogin}
                           source={logo}/>

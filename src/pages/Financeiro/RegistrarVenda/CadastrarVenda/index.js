@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Alert, View, Text, TextInput, TouchableOpacity } from "react-native";
 import firebase from '../../../../config/configFirebase'
 import styles from "../../../GlobalStyle/styles";
@@ -7,12 +7,16 @@ import { TextInputMask } from 'react-native-masked-text'
 
 export default function CadastrarDepesa({ navigation, route }) {
     const database  = firebase.firestore();
+    const [dados, setDados] = useState([]);
+    const endpoint = 'https://webserviceexpo.000webhostapp.com/Service/preco.php';
     const [idBoi, setIdBoi] = useState(route.params.idBoi);
     const [valorCompra, setValorCompra] = useState(route.params.valorCompra);
-    const [data, setData] = useState(route.params.data);
+    const [peso, setPeso] = useState(route.params.peso);
     const [valorVenda, setValorVenda] = useState(null);
     const [dataVenda, setDataVenda] = useState(null);
     const idAnimal = route.params.id
+    let cotacao = 0
+    let arroba = 0
 
 
     
@@ -34,6 +38,20 @@ export default function CadastrarDepesa({ navigation, route }) {
         navigation.navigate("GerenciarVenda", {idUser:route.params.idUser})
       }
 
+      useEffect(() => {
+        fetch(endpoint)
+        .then(res => res.json())
+        .then( res => setDados(res))
+          .catch(() => {
+            Alert.alert('Erro', 'Não foi possível carregar os dados do Servidor!!');
+          });
+        },[]);
+
+        dados.forEach((data)=>{
+            arroba = peso/15
+            cotacao = data.preco*arroba;
+         })
+
    
 
     return(
@@ -42,8 +60,8 @@ export default function CadastrarDepesa({ navigation, route }) {
             <View style={styles.viewItems}>
                 <Text style={styles.textoItemTitle}>Detalhes:</Text>
                 <Text style={styles.textoDetalhes}>Id Brinco: {idBoi}</Text>
-                <Text style={styles.textoDetalhes}>Data de aquisição: {data}</Text>
-                <Text style={styles.textoDetalhes}>Valor do Animal: {valorCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
+                <Text style={styles.textoDetalhes}>Valor de compra: {valorCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
+                <Text style={styles.textoDetalhes}>Valor pela cotação Arroba: {cotacao.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
             </View>        
         </View>
         <Text style={styles.texto}> Valor de venda

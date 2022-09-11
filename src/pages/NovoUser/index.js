@@ -50,7 +50,11 @@ export default function NovoLogin({navigation}) {
 
                   <KeyboardAvoidingView
                   style={styles.viewLogin}
-                  behavior='padding'>
+                  behavior={Platform.select({
+                    ios: 'padding',
+                    android: null,
+                    })}
+                    >
                     <ScrollView>  
   
                       <Text style={styles.title}> Cadastro novo Usuario</Text> 

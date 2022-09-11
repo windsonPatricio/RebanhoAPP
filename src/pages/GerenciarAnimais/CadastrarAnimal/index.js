@@ -58,7 +58,11 @@ export default function CadastrarAnimal({ navigation, route }) {
 
     return(
       <KeyboardAvoidingView 
-      behavior= "position">
+      behavior={Platform.select({
+        ios: 'padding',
+        android: null,
+        })}
+      >
         <ScrollView>
           <Text style={styles.texto}> coloque a identificação do animal:
           </Text>
@@ -122,7 +126,7 @@ export default function CadastrarAnimal({ navigation, route }) {
               suffixUnit: ''
             }}
             placeholder="Valor de compra "
-            keyboardType= "numbers-and-punctuation"
+            keyboardType= "numeric"
             value={valorCompra}
             onChangeText={text => {setValorCompra(text)}}
             style={styles.CampodeTexto2}

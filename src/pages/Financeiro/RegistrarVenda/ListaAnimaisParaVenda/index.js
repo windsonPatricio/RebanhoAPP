@@ -40,13 +40,13 @@ export default function ListaAnimalVenda({navigation, route}) {
                                         <Text style={styles.textoDetalhes}>Tipo do Animal: {item.tipo} </Text>
                                         <Text style={styles.textoDetalhes}>Peso do Animal: {item.peso} </Text>
                                         <Text style={styles.textoDetalhes}>Data de aquisição: {item.data}</Text>
-                                        <Text style={styles.textoDetalhes}>Valor do Animal: {item.valorCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
+                                        <Text style={styles.textoDetalhes}>Valor de compra: {item.valorCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
                                     </View>
                                     <View style={styles.viewBotoes}>
                                         <TouchableOpacity  style={styles.botaoEditar} onPress={()=> navigation.navigate("VenderAnimal", {
                                             id: item.id,
                                             idBoi: item.idBoi,
-                                            data: item.data,
+                                            peso: item.peso,
                                             valorCompra: item.valorCompra,
                                             idUser: route.params.idUser
                                         })}>
