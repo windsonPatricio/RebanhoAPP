@@ -15,7 +15,8 @@
     ],
     "platforms": [
       "android",
-      "ios"
+      "ios",
+      "web"
     ],
     "android": {
       "package": "com.windson.rebanhoApp"

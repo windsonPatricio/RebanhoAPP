@@ -52,7 +52,7 @@ textoBotao:{
 CampodeTexto:{
         fontSize: 20,
         textAlign: 'left',
-        padding: 15,
+        padding: 10,
         backgroundColor: 'white',
         borderStyle: "solid",
         borderBottomColor: "black",
@@ -117,8 +117,8 @@ linkRegistro:{
 OpcoesPgInicial:{
         backgroundColor:"black",
         textAlign: "center",
-        width: 160,
-        height:160,
+        width: 150,
+        height:150,
         fontSize: 30,
         margin: 10,
         marginLeft:10,
@@ -146,8 +146,8 @@ viewTelaInicialSuperior:{
         margin:50
 },
 imagemHome:{        
-        width:255,
-        height: 40, 
+        width:240,
+        height: 30, 
         justifyContent:"center",
         alignSelf: 'center',
         marginLeft:30,
@@ -162,7 +162,7 @@ viewLogout:{
         padding: 12,
         justifyContent:"center",
         alignSelf: "flex-end",
-        width:50,
+        width:45,
         backgroundColor: "black",
         color: "white",
         borderRadius: 30,
@@ -170,7 +170,7 @@ viewLogout:{
 },
 
 iconeBotao:{
-        marginTop: 20,
+        marginTop: 15,
         color: "white",
         alignSelf: "center"
 },
@@ -404,6 +404,42 @@ textoFin2:{
         marginLeft: 80,
         marginTop: 5,
         fontWeight:"bold"
+},
+
+//sobre
+viewSobre:{
+        justifyContent: 'center',
+        alignContent: "center",
+        marginTop: '45%'
+},
+
+
+
+viewDetalhesSobre:{
+        flexDirection: "column",
+        backgroundColor:"white",
+        borderRadius: 30,
+        marginLeft:5,
+        height: '65%',
+        marginRight:5,
+        borderWidth:3,
+        padding: 10,
+        margin: 10
+},
+
+textoSobreTitle:{
+        fontSize: 22,
+        marginLeft:10,
+        marginTop: 5,
+        fontWeight:"bold"
+},
+
+textoSobre:{
+        fontSize: 22,
+        marginTop: 2,
+        marginLeft: 10,
+        color:TEXT_COLOR
+        
 },
 
 // Tela Arroba

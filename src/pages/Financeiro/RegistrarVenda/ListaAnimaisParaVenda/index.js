@@ -3,6 +3,7 @@ import firebase from '../../../../config/configFirebase';
 import {Text, View, FlatList, TouchableOpacity, Alert, ScrollView} from 'react-native';
 //formatacao css de um componente
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from '../../../GlobalStyle/styles';
 
 
@@ -43,6 +44,13 @@ export default function ListaAnimalVenda({navigation, route}) {
                                         <Text style={styles.textoDetalhes}>Valor de compra: {item.valorCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
                                     </View>
                                     <View style={styles.viewBotoes}>
+                                    <TouchableOpacity  style={styles.botaoEditar} onPress={()=> navigation.navigate("PesarAnimal", {
+                                            id: item.id,
+                                            peso: item.peso,
+                                            idUser: route.params.idUser
+                                        })}>
+                                            <Icon name="balance-scale" size={20} color="white"/>
+                                        </TouchableOpacity>
                                         <TouchableOpacity  style={styles.botaoEditar} onPress={()=> navigation.navigate("VenderAnimal", {
                                             id: item.id,
                                             idBoi: item.idBoi,

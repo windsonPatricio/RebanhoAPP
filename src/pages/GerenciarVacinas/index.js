@@ -30,7 +30,7 @@ export default function GerenciarVacinas({navigation, route}) {
                             return(
                                  
                               <View>
-                                {item.class === "animal"
+                                {item.class === "animal" && item.status === "comprado"
                                 ? 
                                 <View  style={styles.viewDetalhesVacina}>
                                  

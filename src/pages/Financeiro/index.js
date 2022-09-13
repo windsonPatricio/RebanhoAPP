@@ -32,7 +32,6 @@ export default function Financeiro({navigation, route}) {
             saldoDespesa += data.valor;
         }
         if(data.status === "vendido"){
-            console.log(data.lucroAdq)
             saldoLucro += data.lucroAdq
         }
     })

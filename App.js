@@ -1,10 +1,8 @@
 import React from 'react';
-import firebase from './src/config/configFirebase';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator} from '@react-navigation/stack';
-import {Alert} from 'react-native';
 import Login from './src/pages/Login/';
-import Home from './src/pages/Pagina';
+import Home from './src/pages/Home';
 import NovoUser from './src/pages/NovoUser/';
 import GerenciarAnimais from './src/pages/GerenciarAnimais/';
 import ListaAnimal from './src/pages/GerenciarAnimais/ListaAnimal';
@@ -22,6 +20,8 @@ import ListaVendidos from './src/pages/Financeiro/RegistrarVenda/ListaVendidos';
 import ListaVenda from './src/pages/Financeiro/RegistrarVenda/ListaAnimaisParaVenda'
 import VenderAnimal from './src/pages/Financeiro/RegistrarVenda/CadastrarVenda';
 import GerenciarVenda from './src/pages/Financeiro/RegistrarVenda/GerenciaVenda';
+import PesarAnimal from './src/pages/Financeiro/RegistrarVenda/Pesagem';
+import Sobre from './src/pages/Sobre';
 
 const Stack = createStackNavigator()
 
@@ -176,6 +176,22 @@ export default function App({navigation}) {
                 component = {VenderAnimal}
                 options={{
                   title: "Realizar venda"
+                
+                }}
+              /> 
+              <Stack.Screen
+                name = "PesarAnimal"
+                component = {PesarAnimal}
+                options={{
+                  title: "Pesagem para venda"
+                
+                }}
+              /> 
+               <Stack.Screen
+                name = "Sobre"
+                component = {Sobre}
+                options={{
+                  title: "Sobre o APP"
                 
                 }}
               /> 
