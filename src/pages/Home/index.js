@@ -1,6 +1,6 @@
 import React from 'react';
 import firebase from '../../config/configFirebase';
-import {Text, View, Image, TouchableOpacity, Alert } from 'react-native';
+import {Text, View, Image, TouchableOpacity, Alert} from 'react-native';
 //formatacao css de um componente
 import Icon from 'react-native-vector-icons/Entypo';
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -27,6 +27,17 @@ export default function Home({navigation, route}) {
         });
       }
   
+      function alertAjuda(){
+    
+        Alert.alert(
+          'Número de identificação', 'Número localizado no brinco preso na orelha do animal',
+          [
+              {text: "OK", style: 'cancel',}
+          ],
+         )
+  
+     }
+
     return(     
             <View>
                 <View  style={styles.viewTelaInicialSuperior}>
@@ -37,10 +48,10 @@ export default function Home({navigation, route}) {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.viewTelaInicial}>  
-                <TouchableOpacity style={styles.OpcoesPgInicial} disabled={false}
-                onPress={() => navigation.navigate("GerenciarAnimais", {idUser: route.params.idUser})}>
+                <TouchableOpacity style={styles.OpcoesPgInicial}
+                 onPress={() => navigation.navigate("GerenciarAnimais", {idUser: route.params.idUser})}>
                     <Icon2 name="cow" size={50} style={styles.iconeBotao}/>
-                    <Text style={styles.textoBotao}>Gerenciar Animais</Text>
+                    <Text style={styles.textoBotao}>Gerenciar animais</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.OpcoesPgInicial} disabled={false}
                 onPress={() =>  navigation.navigate("GerenciarVacinas", {idUser: route.params.idUser})}>

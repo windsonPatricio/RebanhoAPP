@@ -4,6 +4,7 @@ import firebase from '../../../config/configFirebase'
 import styles from "../../GlobalStyle/styles";
 import Icon from 'react-native-vector-icons/Entypo';
 import { TextInputMask } from 'react-native-masked-text'
+import {Picker} from '@react-native-picker/picker';
 
 
 
@@ -15,8 +16,12 @@ export default function CadastrarAnimal({ navigation, route }) {
     const [peso, setPeso] = useState(null);
     const [data, setData] = useState(null);
     const [valorCompra, setValorCompra] = useState(null);
-    const [tipo, setTipo] = useState(null);
-
+    const [tipoSelecionado, setTipoSelecionado] = useState(null);
+    const [tipoAnimal, setTipoAnimal] = useState(['Selecione..',
+                                                  'Corte',
+                                                  'Cria',
+                                                  'Bezerro'
+                                                ])
    
 
    function alertAjuda(){
@@ -35,7 +40,7 @@ export default function CadastrarAnimal({ navigation, route }) {
 
       database.collection(route.params.idUser).add({
         idBoi: idBoi,
-        tipo: tipo,
+        tipo: tipoSelecionado,
         peso: peso,
         data: data,
         valorCompra: valor,
@@ -94,13 +99,18 @@ export default function CadastrarAnimal({ navigation, route }) {
            
           <Text style={styles.texto}> coloque o tipo do animal
           </Text>
-          <TextInput
-                style={styles.CampodeTexto2}
-                placeholder="ex.: Cria ou Corte "
-                type="text"
-                onChangeText={(text)=> setTipo(text)}
-                value={tipo}
-          />
+            <Picker
+              selectedValue={tipoSelecionado}
+              style={styles.CampoSelect}
+              onValueChange={(itemValue) =>
+                setTipoSelecionado(itemValue)
+              }>
+                {
+                  tipoAnimal.map(vc =>{
+                    return  <Picker.Item label={vc} value={vc} />
+                  })
+                }
+          </Picker>
 
           <Text style={styles.texto}> data da aquisição
           </Text>

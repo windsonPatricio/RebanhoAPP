@@ -56,7 +56,7 @@ CampodeTexto:{
         backgroundColor: 'white',
         borderStyle: "solid",
         borderBottomColor: "black",
-        borderWidth: 3,
+        borderWidth: 2,
         borderRadius: 35,
         marginLeft: 40,
         marginRight: 40
@@ -129,7 +129,6 @@ OpcoesPgInicial:{
 
 viewTelaInicial:{
         height:"100%",
-        flex: 1,
         flexWrap: 'wrap',
         flexDirection: 'row',
         justifyContent: 'center',
@@ -156,7 +155,7 @@ imagemHome:{
 
 viewLogout:{
         flexDirection: "row",
-        marginLeft: 40,
+        marginLeft: 30,
         height: 50,
         margin: 10,
         padding: 12,
