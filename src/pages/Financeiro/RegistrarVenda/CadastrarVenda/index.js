@@ -60,8 +60,8 @@ export default function CadastrarDepesa({ navigation, route }) {
             <View style={styles.viewItems}>
                 <Text style={styles.textoItemTitle}>Detalhes:</Text>
                 <Text style={styles.textoDetalhes}>Id Brinco: {idBoi}</Text>
-                <Text style={styles.textoDetalhes}>Valor de compra: {valorCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
-                <Text style={styles.textoDetalhes}>Valor pela cotação Arroba: {cotacao.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
+                <Text style={styles.textoDetalhes}>Valor de compra: R$ {valorCompra.toFixed(2).replace('.', ',')}</Text>
+                <Text style={styles.textoDetalhes}>Valor pela cotação Arroba: R$ {cotacao.toFixed(2).replace('.', ',')}</Text>
             </View>        
         </View>
         <Text style={styles.texto}> Valor de venda

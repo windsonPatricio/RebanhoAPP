@@ -69,7 +69,7 @@ export default function CadastrarAnimal({ navigation, route }) {
         })}
       >
         <ScrollView>
-          <Text style={styles.texto}> coloque a identificação do animal:
+          <Text style={styles.texto}> Coloque a identificação do animal:
           </Text>
           <View style={styles.viewCampoTextoId}>
           <TextInput
@@ -85,7 +85,7 @@ export default function CadastrarAnimal({ navigation, route }) {
                 <Icon name="help" size={20} color="white"/>
           </TouchableOpacity>
           </View>
-          <Text style={styles.texto}> coloque o peso do animal
+          <Text style={styles.texto}> Coloque o peso do animal
           </Text>
           <TextInput
                 style={styles.CampodeTexto2}
@@ -97,7 +97,7 @@ export default function CadastrarAnimal({ navigation, route }) {
                 value={peso}
           />
            
-          <Text style={styles.texto}> coloque o tipo do animal
+          <Text style={styles.texto}> Coloque o tipo do animal
           </Text>
             <Picker
               selectedValue={tipoSelecionado}
@@ -112,7 +112,7 @@ export default function CadastrarAnimal({ navigation, route }) {
                 }
           </Picker>
 
-          <Text style={styles.texto}> data da aquisição
+          <Text style={styles.texto}> Data da aquisição
           </Text>
           <TextInputMask
             type={'datetime'}
@@ -124,7 +124,7 @@ export default function CadastrarAnimal({ navigation, route }) {
             onChangeText={text => { setData(text) }}
             style={styles.CampodeTexto2}
           />
-          <Text style={styles.texto}> preco do animal
+          <Text style={styles.texto}> Preço de compra
           </Text>
           <TextInputMask
             type={'money'}

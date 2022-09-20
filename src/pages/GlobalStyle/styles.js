@@ -8,18 +8,18 @@ const styles = StyleSheet.create({
 
 // estilo geral
 title:{
-        fontSize:35,
+        fontSize:30,
         textAlign:'center',
 },
 
 texto:{
-        fontSize:18,
+        fontSize:14,
         padding:15,
         color:TEXT_COLOR
 },
 
 textoLogin:{
-        fontSize:18,
+        fontSize:14,
         padding:15,
         textAlign:'center',
         color:TEXT_COLOR
@@ -34,7 +34,7 @@ textoErro:{
         marginRight:50,
         fontWeight:"bold",
         textAlign:'center',
-        fontSize:18,
+        fontSize:14,
         padding:15,
         color:TEXT_COLOR
 },
@@ -44,13 +44,13 @@ link:{
 
 textoBotao:{
         textAlign:'center',
-        fontSize:18,
+        fontSize:14,
         padding:15,
         color:"white"
 },
 
 CampodeTexto:{
-        fontSize: 20,
+        fontSize: 14,
         textAlign: 'left',
         padding: 10,
         backgroundColor: 'white',
@@ -114,13 +114,16 @@ linkRegistro:{
 },
 
 //pagina inicial
+viewHome:{
+backgroundColor: 'white'
+},
 OpcoesPgInicial:{
         backgroundColor:"black",
         textAlign: "center",
         width: 150,
         height:150,
-        fontSize: 30,
-        margin: 10,
+        fontSize: 25,
+        margin: 5,
         marginLeft:10,
         marginRight: 10,
         borderRadius: 35
@@ -142,11 +145,11 @@ viewTelaInicialSuperior:{
         marginLeft:5,
         marginRight:5,
         borderWidth:3,
-        margin:50
+        margin:30
 },
 imagemHome:{        
-        width:240,
-        height: 30, 
+        width:200,
+        height: 20, 
         justifyContent:"center",
         alignSelf: 'center',
         marginLeft:30,
@@ -155,10 +158,10 @@ imagemHome:{
 
 viewLogout:{
         flexDirection: "row",
-        marginLeft: 30,
-        height: 50,
-        margin: 10,
-        padding: 12,
+        marginLeft: 40,
+        height: 40,
+        margin: 3,
+        padding: 10,
         justifyContent:"center",
         alignSelf: "flex-end",
         width:45,
@@ -201,7 +204,7 @@ botaoDetalhes:{
         backgroundColor:"black",
         position: "absolute",
         textAlign: "center",
-        fontSize: 30,
+        fontSize: 25,
         margin: 15,
         marginLeft: 80,
         marginRight: 80, 
@@ -222,14 +225,14 @@ botaoEditar:{
 },
 
 textoItemTitle:{
-        fontSize: 30,
+        fontSize: 25,
         marginLeft:10,
         marginTop: 5,
         fontWeight:"bold"
 },
 
 textoDetalhes:{
-        fontSize: 22,
+        fontSize: 20,
         marginTop: 2,
         marginLeft: 10,
         color:TEXT_COLOR
@@ -238,7 +241,7 @@ textoDetalhes:{
 
 //Gerenciar animais
 textoQtd:{
-        fontSize: 50,
+        fontSize: 45,
         marginLeft:80,
         marginTop: 5,
         fontWeight:"bold"
@@ -266,12 +269,12 @@ botaoListar:{
 textoBotaoListar:{
         textAlign:'center',
         fontWeight:"bold",
-        fontSize:23,
+        fontSize:17,
         padding:10,
         color:"white"
 },
 textoTitleQtd:{
-        fontSize: 25,
+        fontSize: 20,
         textAlign:'center',
         marginTop: 5,
         marginLeft: 10,
@@ -281,7 +284,7 @@ textoTitleQtd:{
  //Tela cadastro
 
  CampodeTexto2:{
-        fontSize: 20,
+        fontSize: 15,
         padding: 10,
         backgroundColor: 'white',
         textAlign: 'left',
@@ -295,7 +298,7 @@ textoTitleQtd:{
  
 
  CampodeTexto3:{
-        fontSize: 20,
+        fontSize: 15,
         padding: 10,
         width:'75%',
         backgroundColor: 'white',
@@ -349,7 +352,7 @@ viewBotoesVacina:{
 botaoVacina:{
         backgroundColor:"black",
         textAlign: "center",
-        fontSize: 20,
+        fontSize: 15,
         margin: 10,
         width:"90%",
         borderRadius: 35
@@ -364,13 +367,13 @@ viewNaoVac:{
 textNaoVac:{
         textAlign:'center',
         fontWeight:"bold",
-        fontSize:30,
+        fontSize:25,
         padding: 5,
      
 },
 
 CampoSelect:{
-        fontSize: 20,
+        fontSize: 15,
         padding: 5,
         backgroundColor: 'white',
         textAlign: 'left',
@@ -391,14 +394,15 @@ viewFin:{
 },
 
 textoFin:{
-        fontSize: 35,
+        fontSize: 30,
+        color: TITLE_BG_COLOR,
         marginLeft:80,
         marginTop: 5,
         fontWeight:"bold"
 },
 
 textoFin2:{
-        fontSize: 35,
+        fontSize: 30,
         color: COLOR_FIN,
         marginLeft: 80,
         marginTop: 5,
@@ -409,7 +413,8 @@ textoFin2:{
 viewSobre:{
         justifyContent: 'center',
         alignContent: "center",
-        marginTop: '45%'
+        backgroundColor:'white'
+
 },
 
 
@@ -419,7 +424,7 @@ viewDetalhesSobre:{
         backgroundColor:"white",
         borderRadius: 30,
         marginLeft:5,
-        height: '65%',
+        height: '95%',
         marginRight:5,
         borderWidth:3,
         padding: 10,
@@ -427,14 +432,14 @@ viewDetalhesSobre:{
 },
 
 textoSobreTitle:{
-        fontSize: 22,
+        fontSize: 17,
         marginLeft:10,
         marginTop: 5,
         fontWeight:"bold"
 },
 
 textoSobre:{
-        fontSize: 22,
+        fontSize: 17,
         marginTop: 2,
         marginLeft: 10,
         color:TEXT_COLOR

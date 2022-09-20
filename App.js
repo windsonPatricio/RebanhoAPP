@@ -11,11 +11,9 @@ import EditarAnimal from './src/pages/GerenciarAnimais/EditarAnimal';
 import GerenciarVacinas from './src/pages/GerenciarVacinas';
 import ListaVacinal from './src/pages/GerenciarVacinas/ListaVacinal';
 import CadastrarVacina from './src/pages/GerenciarVacinas/CadastrarVacina';
-import EditarVacina from './src/pages/GerenciarVacinas/EditarVacina';
 import Financeiro from './src/pages/Financeiro';
 import ListaDespesas from './src/pages/Financeiro/RegistrarDespesa/ListaDespesas';
 import CadastrarDespesa from './src/pages/Financeiro/RegistrarDespesa/CadastroDespesas';
-import EditarDespesa from './src/pages/Financeiro/RegistrarDespesa/EditarDespesas';
 import ListaVendidos from './src/pages/Financeiro/RegistrarVenda/ListaVendidos';
 import ListaVenda from './src/pages/Financeiro/RegistrarVenda/ListaAnimaisParaVenda'
 import VenderAnimal from './src/pages/Financeiro/RegistrarVenda/CadastrarVenda';
@@ -108,14 +106,7 @@ export default function App({navigation}) {
                 
                 }}
               />  
-                <Stack.Screen
-                name = "EditarVacina"
-                component = {EditarVacina}
-                options={{
-                  title: "Editar dados da Vacina"
-                
-                }}
-              />   
+           
               <Stack.Screen
                 name = "Financeiro"
                 component = {Financeiro}
@@ -139,14 +130,7 @@ export default function App({navigation}) {
                 
                 }}
               />  
-              <Stack.Screen
-                name = "EditarDespesa"
-                component = {EditarDespesa}
-                options={{
-                  title: "Editar dados da Despesa"
-                
-                }}
-              /> 
+        
               <Stack.Screen
                 name = "GerenciarVenda"
                 component = {GerenciarVenda}

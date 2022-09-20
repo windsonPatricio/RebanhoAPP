@@ -65,9 +65,9 @@ export default function ListaVenda({navigation, route}) {
                                         <Text style={styles.textoDetalhes}>Tipo do Animal: {item.tipo} </Text>
                                         <Text style={styles.textoDetalhes}>Peso do Animal: {item.peso} </Text>
                                         <Text style={styles.textoDetalhes}>Data de aquisição: {item.data}</Text>
-                                        <Text style={styles.textoDetalhes}>Valor do Animal: {item.valorCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
+                                        <Text style={styles.textoDetalhes}>Valor do Animal: R$ {item.valorCompra.toFixed(2).replace('.', ',')}</Text>
                                         <Text style={styles.textoDetalhes}>Valor de Venda: {item.valorVenda.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
-                                        <Text style={styles.textoDetalhes}>Lucro: {item.lucroAdq.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
+                                        <Text style={styles.textoDetalhes}>Lucro: R$ {item.lucroAdq.toFixed(2).replace('.', ',')}</Text>
                                     </View>
                                     <View style={styles.viewBotoes}>
                                         <TouchableOpacity  style={styles.botaoEditar} onPress={()=>{cancVenda(item.id)}}>

@@ -44,13 +44,13 @@ export default function Financeiro({navigation, route}) {
                             <Text style={styles.textoTitleQtd}> Saldo Rebanho</Text>
                                 <View  style={styles.viewDetalhesSuperior}>
                                     <View style={styles.viewFin}>
-                                        <Text style={styles.textoFin}> {saldoRebanho.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
+                                        <Text style={styles.textoFin}> R$ {saldoRebanho.toFixed(2).replace('.', ',')}</Text>
                                     </View>
                                 </View>
                                 <Text style={styles.textoTitleQtd}> Despesas Totais</Text>
                                 <View  style={styles.viewDetalhesSuperior}>
                                     <View style={styles.viewFin}>
-                                        <Text style={styles.textoFin}>{saldoDespesa.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </Text>
+                                        <Text style={styles.textoFin}>R$ {saldoDespesa.toFixed(2).replace('.', ',')} </Text>
                                     </View>
                                 </View>
                                 <Text style={styles.textoTitleQtd}> Lucro Apurado</Text>
@@ -58,9 +58,9 @@ export default function Financeiro({navigation, route}) {
                                     <View style={styles.viewFin}>
                                         {(saldoLucro-saldoDespesa) > 0
                                         ?
-                                        <Text style={styles.textoFin}> {(saldoLucro - saldoDespesa).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
+                                        <Text style={styles.textoFin}> R$ {(saldoLucro - saldoDespesa).toFixed(2).replace('.', ',')}</Text>
                                         :
-                                        <Text style={styles.textoFin2}> {(saldoLucro - saldoDespesa).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>
+                                        <Text style={styles.textoFin2}> R$ {(saldoLucro - saldoDespesa).toFixed(2).replace('.', ',')}</Text>
                                         }
                                     </View>
                                 </View>

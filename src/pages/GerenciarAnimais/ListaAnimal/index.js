@@ -63,7 +63,7 @@ export default function ListaAnimal({navigation, route}) {
                                         <Text style={styles.textoDetalhes}>Tipo do Animal: {item.tipo} </Text>
                                         <Text style={styles.textoDetalhes}>Peso do Animal: {item.peso} </Text>
                                         <Text style={styles.textoDetalhes}>Data de aquisição: {item.data}</Text>
-                                        <Text style={styles.textoDetalhes}>Valor do Animal: {item.valorCompra.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</Text>                        
+                                        <Text style={styles.textoDetalhes}>Valor do Animal: R$ {item.valorCompra.toFixed(2).replace('.', ',')}</Text>                        
                                     </View>
                                     <View style={styles.viewBotoes}>
                                         <TouchableOpacity  style={styles.botaoEditar} onPress={()=>{delAnimal(item.id)}}>

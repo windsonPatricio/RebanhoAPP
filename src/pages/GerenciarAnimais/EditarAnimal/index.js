@@ -1,18 +1,24 @@
 import React, { useState } from "react";
-import { View, Text, Alert, TextInput, TouchableOpacity } from "react-native";
+import { View, ScrollView, Text, Alert, TextInput, TouchableOpacity } from "react-native";
 import firebase from '../../../config/configFirebase'
 import styles from "../../GlobalStyle/styles";
 import { TextInputMask } from 'react-native-masked-text'
 import Icon from 'react-native-vector-icons/Entypo';
+import {Picker} from '@react-native-picker/picker';
 
 
 export default function EditarAnimal({ navigation, route }) {
     const database  = firebase.firestore();
     const [idBoi, setIdBoiEdit] = useState(route.params.idBoi)
     const [peso, setPesoEdit] = useState(route.params.peso)
-    const [tipo, setTipoEdit] = useState(route.params.tipo)
     const [data, setDataEdit] = useState(route.params.data)
+    const [tipoSelecionado, setTipoSelecionado] = useState(route.params.tipo);
     const [valorCompra, setValorCompraEdit] = useState(route.params.valorCompra)
+    const [tipoAnimal, setTipoAnimal] = useState(['Selecione..',
+                                                    'Corte',
+                                                    'Cria',
+                                                    'Bezerro'
+                                                  ])
     const idAnimal = route.params.id
 
     function alertAjuda(){
@@ -25,18 +31,16 @@ export default function EditarAnimal({ navigation, route }) {
        )
 
     }
- 
+   
 
-  function editAnimal(id, idBoi, peso, tipo, data, valorCompra){
-
-    const valor =  parseFloat(valorCompra.replace('R$', "").replace('.', '').replace(',', '.'));
-
+  function editAnimal(id, idBoi, peso, tipoSelecionado, data, valorCompra){
+   
     database.collection(route.params.idUser).doc(id).update({
       idBoi: idBoi,
       peso: peso,
-      tipo: tipo,
+      tipo: tipoSelecionado,
       data: data,
-      valorCompra: valor
+      valorCompra: valorCompra
     })
     Alert.alert(
       'Aviso', 'Dados Alterados com Sucesso!',
@@ -46,9 +50,10 @@ export default function EditarAnimal({ navigation, route }) {
      )
     navigation.navigate("ListaAnimal", {idUser:route.params.idUser})
   }
+  
 
     return(
-        <View>
+        <ScrollView>
           <Text style={styles.texto}> coloque a identificacão do animal:
           </Text>
           <View style={styles.viewCampoTextoId}>
@@ -76,16 +81,20 @@ export default function EditarAnimal({ navigation, route }) {
                 onChangeText={setPesoEdit}
                 value={peso}
           />
-          <Text style={styles.texto}> coloque o tipo do animal
+          <Text style={styles.texto}> Coloque o tipo do animal
           </Text>
-          <TextInput
-                style={styles.CampodeTexto2}
-                placeholder="ex: corte ou cria"
-                type="text"
-                keyboardAppearance="dark"
-                onChangeText={setTipoEdit}
-                value={tipo}
-          />
+            <Picker
+              selectedValue={tipoSelecionado}
+              style={styles.CampoSelect}
+              onValueChange={(itemValue) =>
+                setTipoSelecionado(itemValue)
+              }>
+                {
+                  tipoAnimal.map(vc =>{
+                    return  <Picker.Item label={vc} value={vc} />
+                  })
+                }
+          </Picker>
            <Text style={styles.texto}> data da aquisicão
           </Text>
            <TextInputMask
@@ -110,11 +119,11 @@ export default function EditarAnimal({ navigation, route }) {
           <TouchableOpacity 
             style={styles.botaoLogin}
             onPress={()=>{
-              editAnimal(idAnimal, idBoi, peso, tipo, data, valorCompra)
+              editAnimal(idAnimal, idBoi, peso, tipoSelecionado, data, valorCompra)
             }}
           >
             <Text style={styles.textoBotao}>Alterar</Text>
           </TouchableOpacity>
-        </View>
+        </ScrollView>
       )
     }

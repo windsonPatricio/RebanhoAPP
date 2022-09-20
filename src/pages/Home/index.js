@@ -39,12 +39,12 @@ export default function Home({navigation, route}) {
      }
 
     return(     
-            <View>
+            <View style={styles.viewHome}>
                 <View  style={styles.viewTelaInicialSuperior}>
                     <Image style={styles.imagemHome}
                          source={logo}/>
                     <TouchableOpacity  style={styles.viewLogout} onPress={Logout}>
-                        <Icon name="log-out" size={20} color="white"/>
+                        <Icon name="log-out" size={15} color="white"/>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.viewTelaInicial}>  

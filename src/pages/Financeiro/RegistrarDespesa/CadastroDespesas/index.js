@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert, View, Text, TextInput, TouchableOpacity } from "react-native";
+import { Alert, ScrollView, Text, TextInput, TouchableOpacity } from "react-native";
 import firebase from '../../../../config/configFirebase'
 import styles from "../../../GlobalStyle/styles";
 import { TextInputMask } from 'react-native-masked-text'
@@ -34,7 +34,7 @@ export default function CadastrarDepesa({ navigation, route }) {
    
 
     return(
-      <View>
+      <ScrollView>
           <Text style={styles.texto}> Tipo despesa
           </Text>
           <TextInput
@@ -81,6 +81,6 @@ export default function CadastrarDepesa({ navigation, route }) {
           </TouchableOpacity>
         
      
-        </View>
+        </ScrollView>
       )
     }

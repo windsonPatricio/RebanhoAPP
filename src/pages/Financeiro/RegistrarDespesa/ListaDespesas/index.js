@@ -61,21 +61,12 @@ export default function ListaVacinal({navigation, route}) {
                                         <View style={styles.viewItems}>
                                             <Text style={styles.textoItemTitle}>Detalhes:</Text>
                                             <Text style={styles.textoDetalhes}>Tipo: {item.tipo}</Text>
-                                            <Text style={styles.textoDetalhes}>Valor: {item.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </Text>
+                                            <Text style={styles.textoDetalhes}>Valor: R$ {item.valor.toFixed(2).replace('.', ',')} </Text>
                                             <Text style={styles.textoDetalhes}>Descrição: {item.descricao} </Text>
                                         </View>
                                         <View style={styles.viewBotoes}>
                                             <TouchableOpacity  style={styles.botaoEditar} onPress={()=>{delDespesa(item.id)}}>
                                                 <Icon name="closesquare" size={20} color="white"/>
-                                            </TouchableOpacity>
-                                            <TouchableOpacity  style={styles.botaoEditar} onPress={()=> navigation.navigate("EditarDespesa", {
-                                                id: item.id,
-                                                tipo:item.tipo,
-                                                valorDes: item.valor,
-                                                descricao: item.descricao,
-                                                idUser: route.params.idUser
-                                            })}>
-                                                <Icon2 name="edit" size={20} color="white"/>
                                             </TouchableOpacity>
                                         </View>
                                     </View>
